@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STAT 348 Sampling Techniques — Slides</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5a5a5a;
+    --accent: #7a1f2b;
+    --border: #e2e2e2;
+    --hover: #f5f2f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15171a;
+      --fg: #eaeaea;
+      --muted: #a0a0a0;
+      --accent: #e08a94;
+      --border: #2c2f33;
+      --hover: #1f2226;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+  }
+  header {
+    margin-bottom: 2rem;
+  }
+  h1 {
+    font-size: 1.6rem;
+    margin: 0 0 0.25rem;
+  }
+  header p {
+    margin: 0;
+    color: var(--muted);
+  }
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: lec;
+    border-top: 1px solid var(--border);
+  }
+  li {
+    counter-increment: lec;
+    border-bottom: 1px solid var(--border);
+  }
+  li a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 0.9rem 0.25rem;
+    text-decoration: none;
+    color: var(--fg);
+    border-radius: 6px;
+  }
+  li a:hover {
+    background: var(--hover);
+  }
+  li a::before {
+    content: counter(lec, decimal-leading-zero);
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    font-weight: 600;
+    flex: 0 0 auto;
+  }
+  .lec-title {
+    font-weight: 500;
+  }
+  footer {
+    margin-top: 2.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>STAT 348 Sampling Techniques</h1>
+    <p>Lecture slides (Reveal.js)</p>
+  </header>
+  <ol>
+    <li><a href="Lec01-sampling_survey.html" target="_blank" rel="noopener"><span class="lec-title">Introduction to Sampling Survey</span></a></li>
+    <li><a href="Lec02-overview_sampling.html" target="_blank" rel="noopener"><span class="lec-title">General Probability Sampling</span></a></li>
+    <li><a href="Lec03-SRS.html" target="_blank" rel="noopener"><span class="lec-title">Simple Random Sampling</span></a></li>
+    <li><a href="Lec04-strata.html" target="_blank" rel="noopener"><span class="lec-title">Stratified Random Sampling</span></a></li>
+    <li><a href="Lec05-ratio-reg.html" target="_blank" rel="noopener"><span class="lec-title">Ratio and Regression Estimation</span></a></li>
+    <li><a href="Lec06-cluster.html" target="_blank" rel="noopener"><span class="lec-title">Cluster Sampling</span></a></li>
+    <li><a href="Lec07-ups.html" target="_blank" rel="noopener"><span class="lec-title">Introduction to Unequal Probability Sampling</span></a></li>
+  </ol>
+  <footer>Each link opens a standalone Reveal.js deck (press "S" for speaker notes, "F" for fullscreen).</footer>
+</main>
+</body>
+</html>
