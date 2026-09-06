@@ -227,7 +227,10 @@ s_t^2 = \frac{1}{n-1}\sum_{i\in\mathcal S} \big(\hat t_i - \bar t\big)^2
 <section id="sampling-weights" class="slide level2">
 <h2>Sampling Weights</h2>
 <p>The probability that ssu <span class="math inline">j</span> in psu <span class="math inline">i</span> is selected: <span class="math display">
-P(j\text{th ssu of }i\text{th psu selected}) = P(i\text{th psu selected})\times P(j\text{th ssu}\mid i\text{th psu}) = \frac nN \cdot \frac{m_i}{M_i}
+\begin{aligned}
+P(j\text{th ssu of }i\text{th psu selected}) &amp;= P(i\text{th psu selected})\times P(j\text{th ssu}\mid i\text{th psu}) \\[4pt]
+&amp;= \frac nN \cdot \frac{m_i}{M_i}
+\end{aligned}
 </span></p>
 <p>So the sampling weight (reciprocal of the selection probability) is <span class="math display">
 w_{ij} = \frac{N}{n}\cdot\frac{M_i}{m_i}, \qquad\qquad \hat t_{\text{unb}} = \sum_{i\in\mathcal S}\sum_{j\in\mathcal S_i} w_{ij}y_{ij}

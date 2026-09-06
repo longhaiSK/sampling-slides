@@ -117,7 +117,10 @@ $$
 
 The probability that ssu $j$ in psu $i$ is selected:
 $$
-P(j\text{th ssu of }i\text{th psu selected}) = P(i\text{th psu selected})\times P(j\text{th ssu}\mid i\text{th psu}) = \frac nN \cdot \frac{m_i}{M_i}
+\begin{aligned}
+P(j\text{th ssu of }i\text{th psu selected}) &= P(i\text{th psu selected})\times P(j\text{th ssu}\mid i\text{th psu}) \\[4pt]
+&= \frac nN \cdot \frac{m_i}{M_i}
+\end{aligned}
 $$
 
 So the sampling weight (reciprocal of the selection probability) is
