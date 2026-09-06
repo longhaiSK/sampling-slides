@@ -167,34 +167,27 @@ listing all students and taking an SRS, he notices the dorm consists of 100
 suites of 4 students each; he selects 5 suites at random and asks every
 person in those suites for their GPA:
 
-| Person | Suite 1 | Suite 2 | Suite 3 | Suite 4 | Suite 5 |
+| Suite | Person 1 | Person 2 | Person 3 | Person 4 | **Total** ($t_i$) |
 |:---:|---:|---:|---:|---:|---:|
-| 1 | 3.08 | 2.36 | 2.00 | 3.00 | 2.68 |
-| 2 | 2.60 | 3.04 | 2.56 | 2.88 | 1.92 |
-| 3 | 3.44 | 3.28 | 2.52 | 3.44 | 3.28 |
-| 4 | 3.04 | 2.68 | 1.88 | 3.64 | 3.20 |
-| **Total** ($t_i$) | 12.16 | 11.36 | 8.96 | 12.96 | 11.08 |
+| 1 | 3.08 | 2.60 | 3.44 | 3.04 | **12.16** |
+| 2 | 2.36 | 3.04 | 3.28 | 2.68 | **11.36** |
+| 3 | 2.00 | 2.56 | 2.52 | 1.88 | **8.96** |
+| 4 | 3.00 | 2.88 | 3.44 | 3.64 | **12.96** |
+| 5 | 2.68 | 1.92 | 3.28 | 3.20 | **11.08** |
 
 The psus are the suites: $N=100$, $n=5$, $M=4$.
 
 ## Example: GPA Calculations
 
 $$
-\hat t = \frac{100}{5}(12.16+11.36+8.96+12.96+11.08) = 1130.4
+\begin{aligned}
+\hat t &= \frac{100}{5}(12.16+11.36+8.96+12.96+11.08) = 1130.4 \\[4pt]
+\bar t &= \frac{1130.4}{100} = 11.304 \\[4pt]
+s_t^2 &= \frac{1}{4}\Big[(12.16-11.304)^2+\cdots+(11.08-11.304)^2\Big] = 2.256 \\[4pt]
+\hat{\bar y} &= \frac{1130.4}{400} = 2.826 \\[4pt]
+\text{SE}(\hat{\bar y}) &= \sqrt{\Big(1-\frac{5}{100}\Big)\frac{2.256}{(5)(4)^2}} = 0.164
+\end{aligned}
 $$
-$$
-\bar t = \frac{1130.4}{100} = 11.304, \qquad
-s_t^2 = \frac{1}{4}\Big[(12.16-11.304)^2+\cdots+(11.08-11.304)^2\Big] = 2.256
-$$
-$$
-\hat{\bar y} = \frac{1130.4}{400} = 2.826
-$$
-$$
-\text{SE}(\hat{\bar y}) = \sqrt{\Big(1-\frac{5}{100}\Big)\frac{2.256}{(5)(4)^2}} = 0.164
-$$
-
-Only the suite *totals* were used — individual GPAs contributed only through
-their suite total.
 
 ::: {.callout-note}
 $V(\hat{\bar y}) \ne \big(1-\tfrac{n}{N}\big)\dfrac{s_y^2}{n}$! We *cannot* apply
@@ -323,11 +316,14 @@ size-driven variability in $t_i$ that inflates $s_t^2$.
 
 ## Standard Error of the Ratio Estimator
 
+:::: {.columns}
+
+:::{.column style="width:50%;"}
 ```{r}
 #| label: fig-cluster-ratio
 #| fig-width: 6.5
 #| fig-height: 5
-#| out-width: "58%"
+#| out-width: "100%"
 set.seed(2)
 n <- 30
 B <- 0.6
@@ -342,43 +338,84 @@ abline(0, Bhat, col = "firebrick", lwd = 2)
 segments(Mi, Bhat * Mi, Mi, ti, col = "gray50", lty = 3)
 text(9, Bhat * 9 + 0.3, expression(hat(y)[r]*M[i]), col = "firebrick")
 ```
+:::
 
-From formula (4.10) applied with $x_i=M_i$, $y_i=t_i$:
+:::{.column style="width:50%;"}
+
+From formula (4.10) applied with $x_i=M_i$, $y_i=t_i$, and writing
+$\hat t_{ri}=\hat{\bar y}_r M_i$ for the fitted value:
 $$
-\text{SE}(\hat{\bar y}_r) = \sqrt{\Big(1-\frac nN\Big)\frac{1}{n\bar M^2}\cdot\frac{\sum_{i\in\mathcal S}(t_i-\hat{\bar y}_r M_i)^2}{n-1}}
+s_r^2 = \frac{1}{n-1}\sum_{i\in\mathcal S}(t_i-\hat t_{ri})^2
 $$
-where $\bar M=\sum_{i\in\mathcal S}M_i/n$. The residuals $t_i - \hat{\bar y}_r M_i$
+$$
+\text{SE}(\hat{\bar y}_r) = \sqrt{\Big(1-\frac nN\Big)\frac{s_r^2}{n\bar M^2}}
+$$
+where $\bar M=\sum_{i\in\mathcal S}M_i/n$. The residuals $t_i - \hat t_{ri}$
 (dotted vertical segments) are typically far less variable than $t_i$ itself.
 
-## Example: Algebra Class Test Scores
+:::
+
+::::
+
+## Example: Algebra Class Test Scores 
 
 One-stage cluster samples are common in educational studies, since students
 are naturally clustered into classrooms or schools. From a population of 187
-high-school algebra classes, an investigator takes an SRS of 12 classes and
-tests every student in them for function knowledge:
+high-school algebra classes, an investigator takes an SRS of $n=12$ classes and
+tests every student in them for function knowledge. As with ordinary ratio
+estimation, $\hat t_{ri}=\hat{\bar y}_r M_i$ is the fitted cluster total and
+$e_i=t_i-\hat t_{ri}$ the residual from the line $t=\hat{\bar y}_r M$:
 
-| Class | $M_i$ | $\bar y_i$ | $t_i$ |
-|:---:|---:|---:|---:|
-| 23 | 20 | 61.5 | 1230 |
-| 37 | 26 | 64.2 | 1670 |
-| 38 | 24 | 58.4 | 1402 |
-| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |
-| 108 | 26 | 67.2 | 1746 |
-| **Total** | **299** | | **18{,}708** |
+## Example: Algebra Class Test Scores (Calculation) {.smaller}
 
-## Example: Algebra Class — Results
+:::: {.columns}
 
+:::{.column width="60%"}
+```{r}
+#| label: tbl-algebra-spreadsheet
+#| message: false
+library(gt)
+algebra <- read.csv("data/algebra.csv")
+
+Mi <- tapply(algebra$Mi, algebra$class, function(x) x[1])
+ybari <- tapply(algebra$score, algebra$class, mean)
+alg <- data.frame(Class = names(Mi), Mi = as.numeric(Mi), ybari = as.numeric(ybari))
+alg$ti <- alg$Mi * alg$ybari
+Bhat_alg <- sum(alg$ti) / sum(alg$Mi)
+alg$yhat <- Bhat_alg * alg$Mi
+alg$ei <- alg$ti - alg$yhat
+alg$ei2 <- alg$ei^2
+
+alg |>
+  gt() |>
+  fmt_number(columns = c(ybari, ti, yhat, ei, ei2), decimals = 1) |>
+  cols_label(
+    Mi = md("$M_i$"), ybari = md("$\\bar y_i$"), ti = md("$t_i$"),
+    yhat = md("$\\hat t_{ri}$"), ei = md("$e_i$"), ei2 = md("$e_i^2$")
+  ) |>
+  grand_summary_rows(
+    columns = c(Mi, ti, ei, ei2),
+    fns = list(Sum = ~sum(.)),
+    fmt = ~ fmt_number(., decimals = 2)
+  ) |>
+  tab_options(table.font.size = px(28))
+```
+:::
+
+:::{.column style="width:40%; font-size: 32px;"}
+\
+
+The **Sum** row gives $\sum M_i$, $\sum t_i$, and $\sum e_i^2$ directly:
 $$
-\hat{\bar y}_r = \frac{\sum_{i\in\mathcal S}M_i\bar y_i}{\sum_{i\in\mathcal S}M_i} = \frac{18{,}708}{299} = 62.57
+\begin{aligned}
+\hat{\bar y}_r &= \frac{\sum t_i}{\sum M_i} = \frac{18{,}708}{299} = 62.57 \\[4pt]
+s_e^2 &= \frac{\sum e_i^2}{n-1} = \frac{194{,}827}{11} = 17{,}711.5 \\[4pt]
+\bar M &= \frac{299}{12} = 24.92 \\[4pt]
+\text{SE}(\hat{\bar y}_r) &= \sqrt{\Big(1-\frac{12}{187}\Big)\frac{s_e^2}{n\bar M^2}} = 1.49
+\end{aligned}
 $$
-$$
-\bar M = \frac{299}{12} = 24.92, \qquad
-\text{SE}(\hat{\bar y}_r) = \sqrt{\Big(1-\frac{12}{187}\Big)\frac{1}{(12)(24.92^2)}\cdot\frac{194{,}827}{11}} = 1.49
-$$
-
-where $194{,}827 = \sum_{i\in\mathcal S}(t_i - \hat{\bar y}_r M_i)^2$ is
-computed from the residuals of each class.
-
+:::
+::::
 # A Toy Example: Why Unbiased Estimation Can Be Bad
 
 ## Setup: Estimating Legs per Dog
@@ -389,7 +426,9 @@ exactly 4 legs, so the true population mean is trivially
 $\bar y_U = 4$ legs/dog. We take a one-stage cluster sample of $n=1$ kennel
 (each chosen with probability $1/2$), observing all dogs in it.
 
-## Data Set 1: Kennel $A$ Selected
+## Unbiased Estimation
+
+**Data Set 1: Kennel $A$ Selected**
 
 $$
 t_1 = 30\times 4 = 120, \qquad
@@ -397,7 +436,7 @@ t_1 = 30\times 4 = 120, \qquad
 \hat{\bar y}_{\text{unb}} = \frac{240}{30+10} = 6
 $$
 
-## Data Set 2: Kennel $B$ Selected
+**Data Set 2: Kennel $B$ Selected**
 
 $$
 t_2 = 10\times 4 = 40, \qquad
@@ -496,20 +535,55 @@ measured eggs in each clutch — there is wide variation between clutches
 clutch usually agree closely. This indicates eggs within the same clutch are
 much more similar than two randomly chosen eggs from different clutches.
 
-## Example: Coots — Spreadsheet Calculation
+## Example: Coots — Spreadsheet Calculation 
 
-| Clutch | $M_i$ | $\bar y_i$ | $\hat t_i$ |
-|:---:|---:|---:|---:|
-| 1 | 13 | 3.86 | 50.24 |
-| 2 | 13 | 4.19 | 54.52 |
-| 3 | 6 | 0.92 | 5.50 |
-| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |
-| 184 | 12 | 3.48 | 41.81 |
-| **Total** ($n=184$) | **1757** | | **4375.95** |
+As in the algebra example, $\hat t_{ri}=\hat{\bar y}_r M_i$ and $e_i=\hat t_i-\hat t_{ri}$
+come from the ratio line fit to $(\hat t_i, M_i)$ across all $n=184$ clutches
+(scroll for more rows):
 
+```{r}
+#| label: tbl-coots-spreadsheet
+#| message: false
+coots <- read.csv("data/coots.csv")
+
+Mi <- tapply(coots$csize, coots$clutch, function(x) x[1])
+ybari <- tapply(coots$volume, coots$clutch, mean)
+cts <- data.frame(Clutch = names(Mi), Mi = as.numeric(Mi), ybari = as.numeric(ybari))
+cts$ti <- cts$Mi * cts$ybari
+Bhat_cts <- sum(cts$ti) / sum(cts$Mi)
+cts$yhat <- Bhat_cts * cts$Mi
+cts$ei <- cts$ti - cts$yhat
+cts$ei2 <- cts$ei^2
+
+cts |>
+  gt() |>
+  fmt_number(columns = c(ybari, ti, yhat, ei, ei2), decimals = 2) |>
+  cols_label(
+    Mi = md("$M_i$"), ybari = md("$\\bar y_i$"), ti = md("$\\hat t_i$"),
+    yhat = md("$\\hat t_{ri}$"), ei = md("$e_i$"), ei2 = md("$e_i^2$")
+  ) |>
+  grand_summary_rows(
+    columns = c(Mi, ti, ei, ei2),
+    fns = list(Sum = ~sum(.)),
+    fmt = ~ fmt_number(., decimals = 2)
+  ) |>
+  tab_options(
+    container.height = px(600),
+    container.overflow.y = TRUE,
+    table.font.size = px(28)
+  )
+```
+
+## Example: Coots — Results
+
+The **Sum** row gives $\sum M_i$, $\sum \hat t_i$, and $\sum e_i^2$:
 $$
-\hat{\bar y}_r = \frac{4375.95}{1757} = 2.49, \qquad
-s_r^2 = \frac{11{,}439.58}{183} = 62.51, \qquad \bar M = \frac{1757}{184}=9.549
+\hat{\bar y}_r = \frac{\sum \hat t_i}{\sum M_i} = \frac{4375.95}{1757} = 2.49,
+\qquad
+s_r^2 = \frac{\sum e_i^2}{n-1} = \frac{11{,}439.58}{183} = 62.51,
+$$
+$$
+\qquad \bar M = \frac{1757}{184}=9.549
 $$
 
 Since the total number of clutches $N$ is unknown but presumably very large,
