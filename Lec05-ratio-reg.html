@@ -208,10 +208,10 @@ Figure&nbsp;1: Illustration of Benefits of Ratio Estimation
 <li><p>Red line, fit from the sample: <span class="math inline">\hat y_i=\hat Bx_i</span> for every unit.</p></li>
 </ul>
 <p><span class="math display">
-\hat{\bar y}_r = \frac1N\sum_{i=1}^N \hat y_i = \hat{B}\overline{x}_{\mathcal{U}}
+\hat{\bar y}_r = \frac1N\sum_{i=1}^N \hat y_i = \hat{B}\overline{x}_{U}
 </span></p>
 <ul>
-<li><span class="math inline">\hat{\bar y}_r</span> (red) <span class="math inline">\approx \bar y_{\mathcal{U}}</span> (black), while the naive <span class="math inline">\bar y</span> (green) is badly biased.</li>
+<li><span class="math inline">\hat{\bar y}_r</span> (red) <span class="math inline">\approx \bar y_{U}</span> (black), while the naive <span class="math inline">\bar y</span> (green) is badly biased.</li>
 </ul>
 </div></div>
 </section>
@@ -220,9 +220,9 @@ Figure&nbsp;1: Illustration of Benefits of Ratio Estimation
 <p>Once <span class="math inline">\hat B</span> is estimated, form the <strong>fitted value</strong> <span class="math inline">\hat y_i=\hat B x_i</span> for every unit in the population, using its known <span class="math inline">x_i</span>. Summing (or averaging) these over the population recovers the ratio estimators: <span class="math display">
 \hat t_{yr} = \sum_{i=1}^N \hat y_i = \hat B\, t_x
 \qquad
-\hat{\bar y}_r = \frac1N\sum_{i=1}^N \hat y_i = \hat B\, \bar x_{\mathcal{U}}.
+\hat{\bar y}_r = \frac1N\sum_{i=1}^N \hat y_i = \hat B\, \bar x_{U}.
 </span></p>
-<p>In the figure, this is the height of the red line at <span class="math inline">x=\bar x_{\mathcal{U}}</span>: anchoring it at the known population mean pulls the estimate back near the true <span class="math inline">\bar y_{\mathcal{U}}</span>, despite the sample being biased toward small <span class="math inline">x</span>.</p>
+<p>In the figure, this is the height of the red line at <span class="math inline">x=\bar x_{U}</span>: anchoring it at the known population mean pulls the estimate back near the true <span class="math inline">\bar y_{U}</span>, despite the sample being biased toward small <span class="math inline">x</span>.</p>
 </section></section>
 <section>
 <section id="examples-of-ratio-estimation" class="title-slide slide level1 center" data-number="2">
@@ -257,7 +257,7 @@ x_i = \text{acreage of field } i.
 </span> Then <span class="math display">
 B = \text{average yield in bushels per acre},
 </span> <span class="math display">
-\bar y_{\mathcal{U}} = \text{average yield in bushels per field},
+\bar y_{U} = \text{average yield in bushels per field},
 </span> <span class="math display">
 t_y = \text{total yield in bushels.}
 </span></p>
@@ -402,7 +402,7 @@ x_i = \text{total farm acreage of county } i \text{ in 1987}.
 </div><div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-france-toy" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center" width="100%">
+<div id="fig-france-toy" class="quarto-float quarto-figure quarto-figure-center" width="100%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-france-toy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="Lec05-ratio-reg_files/figure-revealjs/fig-france-toy-1.png" id="fig-france-toy" class="quarto-figure quarto-figure-center" style="width:100.0%">
@@ -418,8 +418,8 @@ Figure&nbsp;2
 </section>
 <section id="example-france-population-estimation-1" class="slide level2 smaller">
 <h2>Example: France Population Estimation</h2>
-<p>Assume the population has <span class="math inline">N=8</span> communes and the total number of registered births is known from administrative records to be <span class="math inline">t_x=40</span> (thousand). This means the true population mean is <span class="math inline">\bar x_{\mathcal{U}}=t_x/N=5</span> (thousand). Our sample mean is only <span class="math inline">\bar x=3</span> (thousand), indicating we sampled smaller-than-average communes.</p>
-<p><strong>Mean:</strong> <span class="math inline">\hat{\bar y}_r=\hat B\bar x_{\mathcal{U}}=30(5)=150</span> (thousand residents)</p>
+<p>Assume the population has <span class="math inline">N=8</span> communes and the total number of registered births is known from administrative records to be <span class="math inline">t_x=40</span> (thousand). This means the true population mean is <span class="math inline">\bar x_{U}=t_x/N=5</span> (thousand). Our sample mean is only <span class="math inline">\bar x=3</span> (thousand), indicating we sampled smaller-than-average communes.</p>
+<p><strong>Mean:</strong> <span class="math inline">\hat{\bar y}_r=\hat B\bar x_{U}=30(5)=150</span> (thousand residents)</p>
 <p><span class="math display">\text{SE}(\hat{\bar y}_r) = \sqrt{\Big(1-\frac{5}{8}\Big)\Big(\frac{5}{3}\Big)^2\frac{374}{5}} = 8.827</span></p>
 <p><strong>Total:</strong> <span class="math inline">\hat t_{yr}=\hat B\,t_x=30(40)=1200</span> (thousand), i.e.&nbsp;<strong>1.2 million</strong> residents</p>
 <p><span class="math display">\text{SE}(\hat t_{yr}) = \sqrt{\Big(1-\frac{5}{8}\Big)\Big(\frac{40}{3}\Big)^2\frac{374}{5}} = 70.616 \text{ (thousand)}</span></p>
@@ -551,7 +551,7 @@ Figure&nbsp;3: Illustration of Benefits of Post-Stratification
 <li><p>Red segments: predictions <span class="math inline">\hat y_i=\bar y_h</span> per stratum, giving <span class="math display">
 \hat{\bar y}_{\text{post}} = \sum_{h=1}^H \pi_h\,\bar y_h .
 </span></p></li>
-<li><p><span class="math inline">\hat{\bar y}_{\text{post}}</span> (red) <span class="math inline">\approx \bar y_{\mathcal{U}}</span> (black); the naive <span class="math inline">\bar y</span> (green) is pulled toward A.</p></li>
+<li><p><span class="math inline">\hat{\bar y}_{\text{post}}</span> (red) <span class="math inline">\approx \bar y_{U}</span> (black); the naive <span class="math inline">\bar y</span> (green) is pulled toward A.</p></li>
 </ul>
 </div></div>
 </section>
@@ -1246,10 +1246,10 @@ Figure&nbsp;5: Illustration of Benefits of Regression Estimation
 </ul>
 <p><span class="math display">
 \hat{\bar y}_{\text{reg}} = \frac1N\sum_{i=1}^N \hat y_i
-= \hat B_0 + \hat B_1 \bar x_{\mathcal{U}}
+= \hat B_0 + \hat B_1 \bar x_{U}
 </span></p>
 <ul>
-<li><span class="math inline">\hat{\bar y}_{\text{reg}}</span> (red) <span class="math inline">\approx \bar y_{\mathcal{U}}</span> (black), while the naive <span class="math inline">\bar y</span> (green) is badly biased.</li>
+<li><span class="math inline">\hat{\bar y}_{\text{reg}}</span> (red) <span class="math inline">\approx \bar y_{U}</span> (black), while the naive <span class="math inline">\bar y</span> (green) is badly biased.</li>
 </ul>
 </div></div>
 </section>
@@ -1301,7 +1301,7 @@ Figure&nbsp;7: Illustration of Benefits of a Machine-Learning Prediction Model
 <p><span class="math display">
 \hat{\bar y}_{\text{ML}} = \frac1N\sum_{i=1}^N \hat y_i
 </span></p>
-<p><span class="math inline">\hat{\bar y}_{\text{ML}}</span> (red) <span class="math inline">\approx \bar y_{\mathcal{U}}</span> (black), much closer than either the naive <span class="math inline">\bar y</span> (green) or a straight-line fit.</p>
+<p><span class="math inline">\hat{\bar y}_{\text{ML}}</span> (red) <span class="math inline">\approx \bar y_{U}</span> (black), much closer than either the naive <span class="math inline">\bar y</span> (green) or a straight-line fit.</p>
 </div></div>
 </section>
 <section id="the-prediction-model-based-estimator" class="slide level2">
@@ -1326,7 +1326,7 @@ m(x)=\hat B_0+\hat B_1x</span>.</p>
 </div>
 <div class="callout-content">
 <p>Since <span class="math inline">\hat m</span> may be nonlinear, this needs every <span class="math inline">x_i</span>, not just <span class="math inline">\bar
-x_{\mathcal{U}}</span> — and SE is usually estimated by the bootstrap.</p>
+x_{U}</span> — and SE is usually estimated by the bootstrap.</p>
 </div>
 </div>
 </div>

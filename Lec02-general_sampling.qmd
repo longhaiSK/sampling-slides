@@ -122,17 +122,17 @@ Note $\sum_{i=1}^4 \pi_i \ne 1$ (it equals 2, since $n=2$ units are drawn each t
 $$
 \textbf{Total:}\quad t = \sum_{i=1}^N y_i
 \qquad
-\textbf{Mean:}\quad \bar y_{\mathcal{U}} = \frac{t}{N} = \frac{\sum_{i=1}^N y_i}{N}
+\textbf{Mean:}\quad \bar y_{U} = \frac{t}{N} = \frac{\sum_{i=1}^N y_i}{N}
 $$
 
 $$
-\textbf{Variance:}\quad S^2 = \frac{1}{N-1}\sum_{i=1}^N (y_i-\bar y_{\mathcal{U}})^2
+\textbf{Variance:}\quad S^2 = \frac{1}{N-1}\sum_{i=1}^N (y_i-\bar y_{U})^2
 \qquad
 \textbf{Standard deviation:}\quad S = \sqrt{S^2}
 $$
 
 ::: {.callout-note}
-In Scheaffer's book, $\displaystyle \sigma^2 = \frac1N \sum_{i=1}^N (y_i - \bar y_{\mathcal{U}})^2$
+In Scheaffer's book, $\displaystyle \sigma^2 = \frac1N \sum_{i=1}^N (y_i - \bar y_{U})^2$
 (divides by $N$, not $N-1$).
 :::
 
@@ -145,7 +145,7 @@ In Scheaffer's book, $\displaystyle \sigma^2 = \frac1N \sum_{i=1}^N (y_i - \bar 
 $$
 t = \sum_{i=1}^5 y_i = 1+0+0+0+1 = 2
 \qquad
-\bar y_{\mathcal{U}} = \frac{2}{5} = 40\% \ \text{(population proportion)}
+\bar y_{U} = \frac{2}{5} = 40\% \ \text{(population proportion)}
 $$
 $$
 S^2 = \frac{1}{5-1}\Big((1-0.4)^2\times 2 + (0-0.4)^2\times 3\Big) = 0.3
@@ -164,7 +164,7 @@ For a 0/1 population, $S^2 \to p(1-p) = 0.4\times0.6$ as $N$ becomes large.
 $$
 t = \sum_{i=1}^4 y_i = 2+4+4+6 = 16
 \qquad
-\bar y_{\mathcal{U}} = \frac{16}{4} = 4
+\bar y_{U} = \frac{16}{4} = 4
 $$
 $$
 S^2 = \frac{1}{4-1}\Big((2-4)^2+(4-4)^2+(4-4)^2+(6-4)^2\Big) = \frac{8}{3}
@@ -194,7 +194,7 @@ $$
 $$
 \bar y = \frac{\sum_{i\in\mathcal S} y_i}{n}, \qquad \hat t = N\cdot\bar y = 4\bar y
 $$
-with true population values $\bar y_{\mathcal{U}}=4$ and population total $t=16$.
+with true population values $\bar y_{U}=4$ and population total $t=16$.
 
 ## Example: Sampling Distribution of $\bar y$
 
@@ -244,10 +244,10 @@ $$
 E(\bar y) = 3\times\tfrac13 + 4\times\tfrac16 + 5\times\tfrac12 = \frac{25}{6}
 $$
 $$
-\text{Bias}(\bar y) = E(\bar y) - \bar y_{\mathcal{U}} = \frac{25}{6} - 4 = \frac16
+\text{Bias}(\bar y) = E(\bar y) - \bar y_{U} = \frac{25}{6} - 4 = \frac16
 $$
 $$
-\text{MSE}(\bar y) = E\big[(\bar y - \bar y_{\mathcal{U}})^2\big]
+\text{MSE}(\bar y) = E\big[(\bar y - \bar y_{U})^2\big]
  = (3-4)^2\cdot\tfrac13 + (4-4)^2\cdot\tfrac16 + (5-4)^2\cdot\tfrac12 = 0.833
 $$
 

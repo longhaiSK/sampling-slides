@@ -113,10 +113,10 @@ text(0.2, ybar_srs, expression(bar(y)), col = "darkgreen", adj = c(0, -0.7), fon
 * Red line, fit from the sample: $\hat y_i=\hat Bx_i$ for every unit.
 
 $$
-\hat{\bar y}_r = \frac1N\sum_{i=1}^N \hat y_i = \hat{B}\overline{x}_{\mathcal{U}}
+\hat{\bar y}_r = \frac1N\sum_{i=1}^N \hat y_i = \hat{B}\overline{x}_{U}
 $$
 
-* $\hat{\bar y}_r$ (red) $\approx \bar y_{\mathcal{U}}$ (black), while the naive
+* $\hat{\bar y}_r$ (red) $\approx \bar y_{U}$ (black), while the naive
 $\bar y$ (green) is badly biased.
 
 :::
@@ -131,12 +131,12 @@ averaging) these over the population recovers the ratio estimators:
 $$
 \hat t_{yr} = \sum_{i=1}^N \hat y_i = \hat B\, t_x
 \qquad
-\hat{\bar y}_r = \frac1N\sum_{i=1}^N \hat y_i = \hat B\, \bar x_{\mathcal{U}}.
+\hat{\bar y}_r = \frac1N\sum_{i=1}^N \hat y_i = \hat B\, \bar x_{U}.
 $$
 
-In the figure, this is the height of the red line at $x=\bar x_{\mathcal{U}}$:
+In the figure, this is the height of the red line at $x=\bar x_{U}$:
 anchoring it at the known population mean pulls the estimate back near the
-true $\bar y_{\mathcal{U}}$, despite the sample being biased toward small $x$.
+true $\bar y_{U}$, despite the sample being biased toward small $x$.
 
 # Examples of Ratio Estimation
 
@@ -180,7 +180,7 @@ $$
 B = \text{average yield in bushels per acre}, 
 $$
 $$
-\bar y_{\mathcal{U}} = \text{average yield in bushels per field}, 
+\bar y_{U} = \text{average yield in bushels per field}, 
 $$
 $$
 t_y = \text{total yield in bushels.}
@@ -332,9 +332,9 @@ text(5.3, Bhat * 5.3, expression(y == hat(B) * x), col = "firebrick", adj = 0)
 
 ## Example: France Population Estimation {.smaller}
 
-Assume the population has $N=8$ communes and the total number of registered births is known from administrative records to be $t_x=40$ (thousand). This means the true population mean is $\bar x_{\mathcal{U}}=t_x/N=5$ (thousand). Our sample mean is only $\bar x=3$ (thousand), indicating we sampled smaller-than-average communes.
+Assume the population has $N=8$ communes and the total number of registered births is known from administrative records to be $t_x=40$ (thousand). This means the true population mean is $\bar x_{U}=t_x/N=5$ (thousand). Our sample mean is only $\bar x=3$ (thousand), indicating we sampled smaller-than-average communes.
 
-**Mean:** $\hat{\bar y}_r=\hat B\bar x_{\mathcal{U}}=30(5)=150$ (thousand residents)
+**Mean:** $\hat{\bar y}_r=\hat B\bar x_{U}=30(5)=150$ (thousand residents)
 
 
 $$\text{SE}(\hat{\bar y}_r) = \sqrt{\Big(1-\frac{5}{8}\Big)\Big(\frac{5}{3}\Big)^2\frac{374}{5}} = 8.827$$
@@ -525,7 +525,7 @@ $$
 \hat{\bar y}_{\text{post}} = \sum_{h=1}^H \pi_h\,\bar y_h .
 $$
 
-* $\hat{\bar y}_{\text{post}}$ (red) $\approx \bar y_{\mathcal{U}}$ (black); the
+* $\hat{\bar y}_{\text{post}}$ (red) $\approx \bar y_{U}$ (black); the
   naive $\bar y$ (green) is pulled toward A.
 
 :::
@@ -802,10 +802,10 @@ text(0.2, ybar_srs, expression(bar(y)), col = "darkgreen", adj = c(0, -0.7), fon
 
 $$
 \hat{\bar y}_{\text{reg}} = \frac1N\sum_{i=1}^N \hat y_i
- = \hat B_0 + \hat B_1 \bar x_{\mathcal{U}}
+ = \hat B_0 + \hat B_1 \bar x_{U}
 $$
 
-* $\hat{\bar y}_{\text{reg}}$ (red) $\approx \bar y_{\mathcal{U}}$ (black), while
+* $\hat{\bar y}_{\text{reg}}$ (red) $\approx \bar y_{U}$ (black), while
 the naive $\bar y$ (green) is badly biased.
 
 :::
@@ -934,7 +934,7 @@ $$
 \hat{\bar y}_{\text{ML}} = \frac1N\sum_{i=1}^N \hat y_i
 $$
 
-$\hat{\bar y}_{\text{ML}}$ (red) $\approx \bar y_{\mathcal{U}}$ (black), much
+$\hat{\bar y}_{\text{ML}}$ (red) $\approx \bar y_{U}$ (black), much
 closer than either the naive $\bar y$ (green) or a straight-line fit.
 
 :::
@@ -961,5 +961,5 @@ m(x)=\hat B_0+\hat B_1x$.
 
 ::: {.callout-note}
 Since $\hat m$ may be nonlinear, this needs every $x_i$, not just $\bar
-x_{\mathcal{U}}$ — and SE is usually estimated by the bootstrap.
+x_{U}$ — and SE is usually estimated by the bootstrap.
 :::
