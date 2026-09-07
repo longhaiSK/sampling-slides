@@ -57,7 +57,7 @@ $$
  = \frac{\binom{N-1}{n-1}}{\binom{N}{n}} = \frac{n}{N}.
 $$
 
-## Estimators for the Population Mean $\bar y_{\mathcal U}$
+## Estimators for the Population Mean $\bar y_{\mathcal{U}}$
 
 **Point estimate:**
 $$
@@ -108,10 +108,10 @@ $$
 
 ## Coefficient of Variation (CV)
 
-The CV is a scale-free measure of variability, defined when $\bar y_{\mathcal U}\ne 0$:
+The CV is a scale-free measure of variability, defined when $\bar y_{\mathcal{U}}\ne 0$:
 $$
 \text{CV}(\bar y) = \frac{\sqrt{V(\bar y)}}{E(\bar y)}
- = \sqrt{1-\frac nN}\ \frac{S}{\sqrt n\, \bar y_{\mathcal U}}
+ = \sqrt{1-\frac nN}\ \frac{S}{\sqrt n\, \bar y_{\mathcal{U}}}
 $$
 
 Estimated from a sample (SRS):
@@ -167,7 +167,7 @@ of farm acres in a county, which is 196,717.
 Estimating a proportion is a special case of estimating a mean. Define $y_i=1$ if
 unit $i$ has the characteristic of interest and $y_i=0$ otherwise. Then
 $$
-p = \frac{1}{N}\sum_{i=1}^N y_i = \bar y_{\mathcal U}, \qquad
+p = \frac{1}{N}\sum_{i=1}^N y_i = \bar y_{\mathcal{U}}, \qquad
 \hat p = \frac1n\sum_{i\in\mathcal S} y_i = \bar y
 $$
 so $\hat p$ is an unbiased estimator of $p$. For binary $y_i$, the population
@@ -220,8 +220,8 @@ true value of the population parameter.
 Hájek's theorem: if certain technical conditions hold and $n$, $N$, and $N-n$ are
 all "sufficiently large," then the sampling distribution of
 $$
-\frac{\bar y - \bar y_{\mathcal U}}{\text{SE}(\bar y)}
- = \frac{\bar y - \bar y_{\mathcal U}}{\sqrt{\big(1-\tfrac nN\big)}\, \tfrac{S}{\sqrt n}}
+\frac{\bar y - \bar y_{\mathcal{U}}}{\text{SE}(\bar y)}
+ = \frac{\bar y - \bar y_{\mathcal{U}}}{\sqrt{\big(1-\tfrac nN\big)}\, \tfrac{S}{\sqrt n}}
 $$
 is approximately standard normal. This is the basis for constructing confidence
 intervals for SRS estimates.
@@ -247,7 +247,7 @@ $$
 
 Using $t_{\alpha/2,299} = 1.968$:
 
-A 95% CI for $\bar y_{\mathcal U}$ (mean acreage):
+A 95% CI for $\bar y_{\mathcal{U}}$ (mean acreage):
 $$
 [297{,}897 \pm (1.968)(18{,}898.434)] = [260{,}706,\ 335{,}088]
 $$
@@ -276,7 +276,7 @@ knitr::include_graphics("figures/acreage-histogram.png")
 Sugden et al. (2000) extend Cochran's rule for the sample size needed for the
 normal approximation to be adequate. A recommended minimum:
 $$
-n_{\min} = 28 + 25\left(\frac{\sum_{i=1}^N (y_i-\bar y_{\mathcal U})^3}{N S^3}\right)^{\!2}
+n_{\min} = 28 + 25\left(\frac{\sum_{i=1}^N (y_i-\bar y_{\mathcal{U}})^3}{N S^3}\right)^{\!2}
 $$
 
 The quantity in parentheses is the **skewness** of the population; larger
@@ -299,18 +299,18 @@ normal.
 
 The desired precision is often expressed in absolute terms:
 $$
-P(|\bar y - \bar y_{\mathcal U}| \le e) = 1-\alpha
+P(|\bar y - \bar y_{\mathcal{U}}| \le e) = 1-\alpha
 $$
 where $e$ is the **margin of error**. For many surveys of people where a
 proportion is measured, $e=0.03$ and $\alpha=0.05$.
 
 Or in relative terms, controlling the CV:
 $$
-P\left(\left|\frac{\bar y - \bar y_{\mathcal U}}{\bar y_{\mathcal U}}\right| \le r\right) = 1-\alpha
-\quad\Longrightarrow\quad e = r \cdot \bar y_{\mathcal U}
+P\left(\left|\frac{\bar y - \bar y_{\mathcal{U}}}{\bar y_{\mathcal{U}}}\right| \le r\right) = 1-\alpha
+\quad\Longrightarrow\quad e = r \cdot \bar y_{\mathcal{U}}
 $$
 
-For example, if $\bar y_{\mathcal U}=180$K and $r=0.1$, then $e=18$K.
+For example, if $\bar y_{\mathcal{U}}=180$K and $r=0.1$, then $e=18$K.
 
 ## Solving for the Required Sample Size
 
@@ -394,10 +394,10 @@ $$
 E[\bar y] = E\left[\sum_{i=1}^N Z_i \frac{y_i}{n}\right]
  = \sum_{i=1}^N E[Z_i]\frac{y_i}{n}
  = \sum_{i=1}^N \frac{n}{N}\cdot\frac{y_i}{n}
- = \sum_{i=1}^N \frac{y_i}{N} = \bar y_{\mathcal U}
+ = \sum_{i=1}^N \frac{y_i}{N} = \bar y_{\mathcal{U}}
 $$
 
-This shows $\bar y$ is an **unbiased** estimator of $\bar y_{\mathcal U}$.
+This shows $\bar y$ is an **unbiased** estimator of $\bar y_{\mathcal{U}}$.
 
 ## Covariance of $Z_i$ and $Z_j$
 
@@ -430,10 +430,10 @@ $$
 
 $$
 E\left[\sum_{i\in\mathcal S}(y_i-\bar y)^2\right]
- = E\left[\sum_{i\in\mathcal S}(y_i-\bar y_{\mathcal U})^2\right] - n\,V(\bar y)
+ = E\left[\sum_{i\in\mathcal S}(y_i-\bar y_{\mathcal{U}})^2\right] - n\,V(\bar y)
 $$
 $$
-= \frac nN \sum_{i=1}^N (y_i - \bar y_{\mathcal U})^2 - \Big(1-\frac nN\Big)S^2
+= \frac nN \sum_{i=1}^N (y_i - \bar y_{\mathcal{U}})^2 - \Big(1-\frac nN\Big)S^2
  = \frac{n(N-1)}{N}S^2 - \frac{N-n}{N}S^2 = (n-1)S^2
 $$
 

@@ -187,8 +187,8 @@ Z_i = \begin{cases} 1 &amp; \text{if unit } i \text{ is in the sample} \\ 0 &amp
 = \frac{\binom{N-1}{n-1}}{\binom{N}{n}} = \frac{n}{N}.
 </span></p>
 </section>
-<section id="estimators-for-the-population-mean-bar-y_mathcal-u" class="slide level2">
-<h2>Estimators for the Population Mean <span class="math inline">\bar y_{\mathcal U}</span></h2>
+<section id="estimators-for-the-population-mean-bar-y_mathcalu" class="slide level2">
+<h2>Estimators for the Population Mean <span class="math inline">\bar y_{\mathcal{U}}</span></h2>
 <p><strong>Point estimate:</strong> <span class="math display">
 \bar y_{\mathcal S} = \frac1n \sum_{i \in \mathcal S} y_i
 = \frac1n \sum_{i=1}^N Z_i y_i
@@ -225,23 +225,23 @@ s^2 = \frac{1}{n-1}\sum_{i\in\mathcal S} (y_i - \bar y)^2
 \hat t = N \bar y
 </span> <span class="math display">
 \hat V(\hat t) = N^2\Big(1-\frac nN\Big)\frac{s^2}{n}
-\qquad\qquad
+\qquad
 \text{SE}(\hat t) = N \cdot \text{SE}(\bar y)
 </span></p>
 </section>
 <section id="expression-of-hat-t-with-sampling-weight-w_i" class="slide level2">
 <h2>Expression of <span class="math inline">\hat t</span> with Sampling Weight <span class="math inline">w_i</span></h2>
 <p><span class="math display">
-\pi_i = n/N \qquad\qquad w_i = 1/\pi_i = N/n
+\pi_i = n/N \qquad w_i = 1/\pi_i = N/n
 </span> <span class="math display">
 \sum_{i\in\mathcal S} w_i y_i = \sum_{i\in\mathcal S} \frac{N}{n} y_i = \hat t
 </span></p>
 </section>
 <section id="coefficient-of-variation-cv" class="slide level2">
 <h2>Coefficient of Variation (CV)</h2>
-<p>The CV is a scale-free measure of variability, defined when <span class="math inline">\bar y_{\mathcal U}\ne 0</span>: <span class="math display">
+<p>The CV is a scale-free measure of variability, defined when <span class="math inline">\bar y_{\mathcal{U}}\ne 0</span>: <span class="math display">
 \text{CV}(\bar y) = \frac{\sqrt{V(\bar y)}}{E(\bar y)}
-= \sqrt{1-\frac nN}\ \frac{S}{\sqrt n\, \bar y_{\mathcal U}}
+= \sqrt{1-\frac nN}\ \frac{S}{\sqrt n\, \bar y_{\mathcal{U}}}
 </span></p>
 <p>Estimated from a sample (SRS): <span class="math display">
 \widehat{\text{CV}}(\bar y) = \frac{\text{SE}(\bar y)}{\bar y}
@@ -279,7 +279,7 @@ s^2 = \frac{1}{n-1}\sum_{i\in\mathcal S} (y_i - \bar y)^2
 <section id="estimators-for-a-population-proportion" class="slide level2">
 <h2>Estimators for a Population Proportion</h2>
 <p>Estimating a proportion is a special case of estimating a mean. Define <span class="math inline">y_i=1</span> if unit <span class="math inline">i</span> has the characteristic of interest and <span class="math inline">y_i=0</span> otherwise. Then <span class="math display">
-p = \frac{1}{N}\sum_{i=1}^N y_i = \bar y_{\mathcal U}, \qquad
+p = \frac{1}{N}\sum_{i=1}^N y_i = \bar y_{\mathcal{U}}, \qquad
 \hat p = \frac1n\sum_{i\in\mathcal S} y_i = \bar y
 </span> so <span class="math inline">\hat p</span> is an unbiased estimator of <span class="math inline">p</span>. For binary <span class="math inline">y_i</span>, the population variance simplifies to <span class="math display">
 S^2 = \frac{N}{N-1}\,p(1-p).
@@ -313,8 +313,8 @@ s^2 = \frac{1}{n-1}\sum_{i\in\mathcal S}(y_i-\hat p)^2 = \frac{n}{n-1}\,\hat p(1
 <section id="normality-of-the-sample-mean" class="slide level2">
 <h2>Normality of the Sample Mean</h2>
 <p>Hájek’s theorem: if certain technical conditions hold and <span class="math inline">n</span>, <span class="math inline">N</span>, and <span class="math inline">N-n</span> are all “sufficiently large,” then the sampling distribution of <span class="math display">
-\frac{\bar y - \bar y_{\mathcal U}}{\text{SE}(\bar y)}
-= \frac{\bar y - \bar y_{\mathcal U}}{\sqrt{\big(1-\tfrac nN\big)}\, \tfrac{S}{\sqrt n}}
+\frac{\bar y - \bar y_{\mathcal{U}}}{\text{SE}(\bar y)}
+= \frac{\bar y - \bar y_{\mathcal{U}}}{\sqrt{\big(1-\tfrac nN\big)}\, \tfrac{S}{\sqrt n}}
 </span> is approximately standard normal. This is the basis for constructing confidence intervals for SRS estimates.</p>
 </section>
 <section id="confidence-intervals-for-srs-estimates" class="slide level2">
@@ -332,7 +332,7 @@ s^2 = \frac{1}{n-1}\sum_{i\in\mathcal S}(y_i-\hat p)^2 = \frac{n}{n-1}\,\hat p(1
 <section id="example-cis-for-agsrs.csv" class="slide level2">
 <h2>Example: CIs for <code>agsrs.csv</code></h2>
 <p>Using <span class="math inline">t_{\alpha/2,299} = 1.968</span>:</p>
-<p>A 95% CI for <span class="math inline">\bar y_{\mathcal U}</span> (mean acreage): <span class="math display">
+<p>A 95% CI for <span class="math inline">\bar y_{\mathcal{U}}</span> (mean acreage): <span class="math display">
 [297{,}897 \pm (1.968)(18{,}898.434)] = [260{,}706,\ 335{,}088]
 </span></p>
 <p>A 95% CI for the population total <span class="math inline">t</span>: <span class="math display">
@@ -351,7 +351,7 @@ Figure&nbsp;1: Histogram: number of acres devoted to farms in 1992, for an SRS o
 <section id="minimum-sample-size-for-normality-to-hold" class="slide level2">
 <h2>Minimum Sample Size for Normality to Hold</h2>
 <p>Sugden et al.&nbsp;(2000) extend Cochran’s rule for the sample size needed for the normal approximation to be adequate. A recommended minimum: <span class="math display">
-n_{\min} = 28 + 25\left(\frac{\sum_{i=1}^N (y_i-\bar y_{\mathcal U})^3}{N S^3}\right)^{\!2}
+n_{\min} = 28 + 25\left(\frac{\sum_{i=1}^N (y_i-\bar y_{\mathcal{U}})^3}{N S^3}\right)^{\!2}
 </span></p>
 <p>The quantity in parentheses is the <strong>skewness</strong> of the population; larger skewness requires a larger sample for normality to hold.</p>
 </section>
@@ -365,13 +365,13 @@ n_{\min} = 28 + 25\left(\frac{1.05036\times10^{17}}{(344{,}551.9)^3}\right)^{\!2
 <section id="sample-size-estimation-specifying-tolerable-error" class="slide level2">
 <h2>Sample Size Estimation: Specifying Tolerable Error</h2>
 <p>The desired precision is often expressed in absolute terms: <span class="math display">
-P(|\bar y - \bar y_{\mathcal U}| \le e) = 1-\alpha
+P(|\bar y - \bar y_{\mathcal{U}}| \le e) = 1-\alpha
 </span> where <span class="math inline">e</span> is the <strong>margin of error</strong>. For many surveys of people where a proportion is measured, <span class="math inline">e=0.03</span> and <span class="math inline">\alpha=0.05</span>.</p>
 <p>Or in relative terms, controlling the CV: <span class="math display">
-P\left(\left|\frac{\bar y - \bar y_{\mathcal U}}{\bar y_{\mathcal U}}\right| \le r\right) = 1-\alpha
-\quad\Longrightarrow\quad e = r \cdot \bar y_{\mathcal U}
+P\left(\left|\frac{\bar y - \bar y_{\mathcal{U}}}{\bar y_{\mathcal{U}}}\right| \le r\right) = 1-\alpha
+\quad\Longrightarrow\quad e = r \cdot \bar y_{\mathcal{U}}
 </span></p>
-<p>For example, if <span class="math inline">\bar y_{\mathcal U}=180</span>K and <span class="math inline">r=0.1</span>, then <span class="math inline">e=18</span>K.</p>
+<p>For example, if <span class="math inline">\bar y_{\mathcal{U}}=180</span>K and <span class="math inline">r=0.1</span>, then <span class="math inline">e=18</span>K.</p>
 </section>
 <section id="solving-for-the-required-sample-size" class="slide level2">
 <h2>Solving for the Required Sample Size</h2>
@@ -428,9 +428,9 @@ V(Z_i) = E[Z_i^2] - (E[Z_i])^2 = \frac nN - \Big(\frac nN\Big)^2 = \frac nN\Big(
 E[\bar y] = E\left[\sum_{i=1}^N Z_i \frac{y_i}{n}\right]
 = \sum_{i=1}^N E[Z_i]\frac{y_i}{n}
 = \sum_{i=1}^N \frac{n}{N}\cdot\frac{y_i}{n}
-= \sum_{i=1}^N \frac{y_i}{N} = \bar y_{\mathcal U}
+= \sum_{i=1}^N \frac{y_i}{N} = \bar y_{\mathcal{U}}
 </span></p>
-<p>This shows <span class="math inline">\bar y</span> is an <strong>unbiased</strong> estimator of <span class="math inline">\bar y_{\mathcal U}</span>.</p>
+<p>This shows <span class="math inline">\bar y</span> is an <strong>unbiased</strong> estimator of <span class="math inline">\bar y_{\mathcal{U}}</span>.</p>
 </section>
 <section id="covariance-of-z_i-and-z_j" class="slide level2">
 <h2>Covariance of <span class="math inline">Z_i</span> and <span class="math inline">Z_j</span></h2>
@@ -456,9 +456,9 @@ V(\bar y) = \frac1n\Big(1-\frac nN\Big)\frac{1}{N(N-1)}\left[N\sum_{i=1}^N y_i^2
 <h2>Proof that <span class="math inline">E(s^2) = S^2</span></h2>
 <p><span class="math display">
 E\left[\sum_{i\in\mathcal S}(y_i-\bar y)^2\right]
-= E\left[\sum_{i\in\mathcal S}(y_i-\bar y_{\mathcal U})^2\right] - n\,V(\bar y)
+= E\left[\sum_{i\in\mathcal S}(y_i-\bar y_{\mathcal{U}})^2\right] - n\,V(\bar y)
 </span> <span class="math display">
-= \frac nN \sum_{i=1}^N (y_i - \bar y_{\mathcal U})^2 - \Big(1-\frac nN\Big)S^2
+= \frac nN \sum_{i=1}^N (y_i - \bar y_{\mathcal{U}})^2 - \Big(1-\frac nN\Big)S^2
 = \frac{n(N-1)}{N}S^2 - \frac{N-n}{N}S^2 = (n-1)S^2
 </span></p>
 <p>Therefore <span class="math display">

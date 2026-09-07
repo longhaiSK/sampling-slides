@@ -292,10 +292,10 @@ P(\mathcal{S}_1)=\tfrac13,\quad P(\mathcal{S}_4)=\tfrac16,\quad P(\mathcal{S}_6)
 <p><span class="math display">
 \textbf{Total:}\quad t = \sum_{i=1}^N y_i
 \qquad
-\textbf{Mean:}\quad \bar y_{\mathcal U} = \frac{t}{N} = \frac{\sum_{i=1}^N y_i}{N}
+\textbf{Mean:}\quad \bar y_{\mathcal{U}} = \frac{t}{N} = \frac{\sum_{i=1}^N y_i}{N}
 </span></p>
 <p><span class="math display">
-\textbf{Variance:}\quad S^2 = \frac{1}{N-1}\sum_{i=1}^N (y_i-\bar y_{\mathcal U})^2
+\textbf{Variance:}\quad S^2 = \frac{1}{N-1}\sum_{i=1}^N (y_i-\bar y_{\mathcal{U}})^2
 \qquad
 \textbf{Standard deviation:}\quad S = \sqrt{S^2}
 </span></p>
@@ -308,7 +308,7 @@ P(\mathcal{S}_1)=\tfrac13,\quad P(\mathcal{S}_4)=\tfrac16,\quad P(\mathcal{S}_6)
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>In Scheaffer’s book, <span class="math inline">\displaystyle \sigma^2 = \frac1N \sum_{i=1}^N (y_i - \bar y_{\mathcal U})^2</span> (divides by <span class="math inline">N</span>, not <span class="math inline">N-1</span>).</p>
+<p>In Scheaffer’s book, <span class="math inline">\displaystyle \sigma^2 = \frac1N \sum_{i=1}^N (y_i - \bar y_{\mathcal{U}})^2</span> (divides by <span class="math inline">N</span>, not <span class="math inline">N-1</span>).</p>
 </div>
 </div>
 </div>
@@ -340,7 +340,7 @@ P(\mathcal{S}_1)=\tfrac13,\quad P(\mathcal{S}_4)=\tfrac16,\quad P(\mathcal{S}_6)
 <p><span class="math display">
 t = \sum_{i=1}^5 y_i = 1+0+0+0+1 = 2
 \qquad
-\bar y_{\mathcal U} = \frac{2}{5} = 40\% \ \text{(population proportion)}
+\bar y_{\mathcal{U}} = \frac{2}{5} = 40\% \ \text{(population proportion)}
 </span> <span class="math display">
 S^2 = \frac{1}{5-1}\Big((1-0.4)^2\times 2 + (0-0.4)^2\times 3\Big) = 0.3
 </span></p>
@@ -383,7 +383,7 @@ S^2 = \frac{1}{5-1}\Big((1-0.4)^2\times 2 + (0-0.4)^2\times 3\Big) = 0.3
 <p><span class="math display">
 t = \sum_{i=1}^4 y_i = 2+4+4+6 = 16
 \qquad
-\bar y_{\mathcal U} = \frac{16}{4} = 4
+\bar y_{\mathcal{U}} = \frac{16}{4} = 4
 </span> <span class="math display">
 S^2 = \frac{1}{4-1}\Big((2-4)^2+(4-4)^2+(4-4)^2+(6-4)^2\Big) = \frac{8}{3}
 </span></p>
@@ -406,7 +406,7 @@ The sampling distribution is the distribution of a statistic under repeated samp
 </ul>
 <p><strong>Example</strong> (same devices-per-household population): <span class="math inline">n=2</span>, <span class="math inline">N=4</span>, <span class="math display">
 \bar y = \frac{\sum_{i\in\mathcal S} y_i}{n}, \qquad \hat t = N\cdot\bar y = 4\bar y
-</span> with true population values <span class="math inline">\bar y_{\mathcal U}=4</span> and population total <span class="math inline">t=16</span>.</p>
+</span> with true population values <span class="math inline">\bar y_{\mathcal{U}}=4</span> and population total <span class="math inline">t=16</span>.</p>
 </section>
 <section id="example-sampling-distribution-of-bar-y" class="slide level2">
 <h2>Example: Sampling Distribution of <span class="math inline">\bar y</span></h2>
@@ -484,9 +484,9 @@ Figure&nbsp;1
 <p><span class="math display">
 E(\bar y) = 3\times\tfrac13 + 4\times\tfrac16 + 5\times\tfrac12 = \frac{25}{6}
 </span> <span class="math display">
-\text{Bias}(\bar y) = E(\bar y) - \bar y_{\mathcal U} = \frac{25}{6} - 4 = \frac16
+\text{Bias}(\bar y) = E(\bar y) - \bar y_{\mathcal{U}} = \frac{25}{6} - 4 = \frac16
 </span> <span class="math display">
-\text{MSE}(\bar y) = E\big[(\bar y - \bar y_{\mathcal U})^2\big]
+\text{MSE}(\bar y) = E\big[(\bar y - \bar y_{\mathcal{U}})^2\big]
 = (3-4)^2\cdot\tfrac13 + (4-4)^2\cdot\tfrac16 + (5-4)^2\cdot\tfrac12 = 0.833
 </span></p>
 </section>

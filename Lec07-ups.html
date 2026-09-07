@@ -503,7 +503,7 @@ E(u_j^*) = \sum_{i=1}^N u_i\psi_i = \sum_{i=1}^N \frac{t_i}{\psi_i}\psi_i = \sum
 V(u_j^*) = \sum_{i=1}^N \psi_i(u_i-t)^2 = \sum_{i=1}^N \psi_i\Big(\frac{t_i}{\psi_i}-t\Big)^2
 </span></p>
 <p>Since <span class="math inline">\hat t_\psi</span> is the mean of <span class="math inline">n</span> IID copies of <span class="math inline">u_j^*</span>: <span class="math display">
-E(\hat t_\psi) = E(u_j^*) = t, \qquad\qquad
+E(\hat t_\psi) = E(u_j^*) = t, \qquad
 V(\hat t_\psi) = \frac{V(u_j^*)}{n} = \frac1n\sum_{i=1}^N \psi_i\Big(\frac{t_i}{\psi_i}-t\Big)^2
 </span></p>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -523,7 +523,7 @@ V(\hat t_\psi) = \frac{V(u_j^*)}{n} = \frac1n\sum_{i=1}^N \psi_i\Big(\frac{t_i}{
 <section id="ratio-estimation-for-the-ssu-level-mean" class="slide level2">
 <h2>Ratio Estimation for the ssu-Level Mean</h2>
 <p>We estimate the population mean <span class="math inline">\bar y_U = t/M_0</span> by <span class="math display">
-\hat{\bar y}_\psi = \frac{\hat t_\psi}{\hat M_{0\psi}}, \qquad\qquad
+\hat{\bar y}_\psi = \frac{\hat t_\psi}{\hat M_{0\psi}}, \qquad
 \hat M_{0\psi} = \frac1n\sum_{i\in\mathcal R}\frac{M_i}{\psi_i}
 </span></p>
 <p>Using Chapter 4’s ratio-estimation results with <span class="math inline">y_i=t_i/\psi_i</span> and <span class="math inline">x_i=M_i/\psi_i</span>: <span class="math display">
@@ -937,7 +937,7 @@ s^2 &amp;= \frac{1{,}088{,}383}{4} = 272{,}095.8 \\[4pt]
 w_i = \frac{1}{\text{expected number of hits}} = \frac{1}{E[Q_i]} = \frac{1}{n\psi_i}
 </span></p>
 <p>For one-stage cluster sampling (every ssu observed each time psu <span class="math inline">i</span> is hit), <span class="math inline">w_{ij}=w_i=1/(n\psi_i)</span> for every ssu <span class="math inline">j</span> in psu <span class="math inline">i</span>, and <span class="math display">
-\hat t_\psi = \sum_{i\in\mathcal R}\sum_{j=1}^{M_i} w_{ij}y_{ij}, \qquad\qquad
+\hat t_\psi = \sum_{i\in\mathcal R}\sum_{j=1}^{M_i} w_{ij}y_{ij}, \qquad
 \hat{\bar y}_\psi = \frac{\sum_{i\in\mathcal R}\sum_{j=1}^{M_i} w_{ij}y_{ij}}{\sum_{i\in\mathcal R}\sum_{j=1}^{M_i} w_{ij}}
 </span></p>
 <p>For two-stage sampling with an SRS of <span class="math inline">m_i</span> ssus per selected psu, the weight picks up an extra factor <span class="math inline">M_i/m_i</span> for the subsampling stage, exactly as in ordinary two-stage cluster sampling.</p>

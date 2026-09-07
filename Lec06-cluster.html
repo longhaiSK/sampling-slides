@@ -194,7 +194,7 @@ y_{ij} = \text{measurement for the } j\text{th element (ssu) in the } i\text{th 
 N = \text{number of psus}, \qquad M_i = \text{number of ssus in psu } i, \qquad
 M_0 = \sum_{i=1}^N M_i
 </span> <span class="math display">
-t_i = \sum_{j=1}^{M_i} y_{ij} \quad(\text{psu total}) \qquad\qquad
+t_i = \sum_{j=1}^{M_i} y_{ij} \quad(\text{psu total}) \qquad
 t = \sum_{i=1}^N t_i \quad(\text{population total})
 </span> <span class="math display">
 S_t^2 = \frac{1}{N-1}\sum_{i=1}^N \Big(t_i - \frac tN\Big)^2 \quad(\text{population variance of psu totals})
@@ -220,7 +220,7 @@ S_i^2 = \frac{\sum_{j=1}^{M_i}(y_{ij}-\bar y_{iU})^2}{M_i-1} \quad(\text{populat
 </span> <span class="math display">
 \hat t_{\text{unb}} = \sum_{i\in\mathcal S} \frac{N}{n}\hat t_i \quad(\text{unbiased estimator of } t)
 </span> <span class="math display">
-\bar t = \frac{\sum_{i\in\mathcal S} \hat t_i}{n}, \qquad\qquad
+\bar t = \frac{\sum_{i\in\mathcal S} \hat t_i}{n}, \qquad
 s_t^2 = \frac{1}{n-1}\sum_{i\in\mathcal S} \big(\hat t_i - \bar t\big)^2
 </span></p>
 </section>
@@ -233,7 +233,7 @@ P(j\text{th ssu of }i\text{th psu selected}) &amp;= P(i\text{th psu selected})\t
 \end{aligned}
 </span></p>
 <p>So the sampling weight (reciprocal of the selection probability) is <span class="math display">
-w_{ij} = \frac{N}{n}\cdot\frac{M_i}{m_i}, \qquad\qquad \hat t_{\text{unb}} = \sum_{i\in\mathcal S}\sum_{j\in\mathcal S_i} w_{ij}y_{ij}
+w_{ij} = \frac{N}{n}\cdot\frac{M_i}{m_i}, \qquad \hat t_{\text{unb}} = \sum_{i\in\mathcal S}\sum_{j\in\mathcal S_i} w_{ij}y_{ij}
 </span></p>
 <p>If psus are blocks and ssus are households, household <span class="math inline">j</span> in psu <span class="math inline">i</span> represents <span class="math inline">(NM_i)/(nm_i)</span> households in the population.</p>
 </section></section>
@@ -450,7 +450,7 @@ Figure&nbsp;1
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-cluster-ratio" class="quarto-float quarto-figure quarto-figure-center" width="100%" data-fig-align="center">
+<div id="fig-cluster-ratio" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-cluster-ratio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img data-src="Lec06-cluster_files/figure-revealjs/fig-cluster-ratio-1.png" id="fig-cluster-ratio" class="quarto-figure quarto-figure-center" style="width:100.0%">
