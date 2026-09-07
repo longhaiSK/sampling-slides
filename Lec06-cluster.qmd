@@ -76,7 +76,7 @@ N = \text{number of psus}, \qquad M_i = \text{number of ssus in psu } i, \qquad
 M_0 = \sum_{i=1}^N M_i
 $$
 $$
-t_i = \sum_{j=1}^{M_i} y_{ij} \quad(\text{psu total}) \qquad\qquad
+t_i = \sum_{j=1}^{M_i} y_{ij} \quad(\text{psu total}) \qquad
 t = \sum_{i=1}^N t_i \quad(\text{population total})
 $$
 $$
@@ -109,7 +109,7 @@ $$
 \hat t_{\text{unb}} = \sum_{i\in\mathcal S} \frac{N}{n}\hat t_i \quad(\text{unbiased estimator of } t)
 $$
 $$
-\bar t = \frac{\sum_{i\in\mathcal S} \hat t_i}{n}, \qquad\qquad
+\bar t = \frac{\sum_{i\in\mathcal S} \hat t_i}{n}, \qquad
 s_t^2 = \frac{1}{n-1}\sum_{i\in\mathcal S} \big(\hat t_i - \bar t\big)^2
 $$
 
@@ -125,7 +125,7 @@ $$
 
 So the sampling weight (reciprocal of the selection probability) is
 $$
-w_{ij} = \frac{N}{n}\cdot\frac{M_i}{m_i}, \qquad\qquad \hat t_{\text{unb}} = \sum_{i\in\mathcal S}\sum_{j\in\mathcal S_i} w_{ij}y_{ij}
+w_{ij} = \frac{N}{n}\cdot\frac{M_i}{m_i}, \qquad \hat t_{\text{unb}} = \sum_{i\in\mathcal S}\sum_{j\in\mathcal S_i} w_{ij}y_{ij}
 $$
 
 If psus are blocks and ssus are households, household $j$ in psu $i$

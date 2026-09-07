@@ -76,8 +76,8 @@ used for the population *value* and $Y_i$ is a random variable.
 Once we have chosen a sample design, each unit in the population has a known
 probability of appearing in the selected sample:
 $$
-\pi_i = P(\text{unit } i \text{ in sample}) \tag{2.2}
-$$
+\pi_i = P(\text{unit } i \text{ in sample})
+$${#eq-include}
 computed by summing the probabilities of all possible samples that contain unit
 $i$. In probability sampling, all $\pi_i$ are known before the survey commences,
 and we assume $\pi_i > 0$ for every unit in the population.
@@ -121,13 +121,13 @@ Note $\sum_{i=1}^4 \pi_i \ne 1$ (it equals 2, since $n=2$ units are drawn each t
 
 $$
 \textbf{Total:}\quad t = \sum_{i=1}^N y_i
-\qquad\qquad
+\qquad
 \textbf{Mean:}\quad \bar y_{\mathcal U} = \frac{t}{N} = \frac{\sum_{i=1}^N y_i}{N}
 $$
 
 $$
 \textbf{Variance:}\quad S^2 = \frac{1}{N-1}\sum_{i=1}^N (y_i-\bar y_{\mathcal U})^2
-\qquad\qquad
+\qquad
 \textbf{Standard deviation:}\quad S = \sqrt{S^2}
 $$
 

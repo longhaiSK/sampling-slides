@@ -44,7 +44,7 @@ $$
 $$
 $$
 \hat t_{yr} = \hat B\, t_x = \hat y_r \cdot N
-\qquad\qquad
+\qquad
 \hat{\bar y}_r = \hat B\, \bar x_U
 $$
 
@@ -130,7 +130,7 @@ for every unit in the population, using its known $x_i$. Summing (or
 averaging) these over the population recovers the ratio estimators:
 $$
 \hat t_{yr} = \sum_{i=1}^N \hat y_i = \hat B\, t_x
-\qquad\qquad
+\qquad
 \hat{\bar y}_r = \frac1N\sum_{i=1}^N \hat y_i = \hat B\, \bar x_{\mathcal U}.
 $$
 
@@ -152,7 +152,7 @@ B = \bar y_U, \qquad \hat B = \bar y
 $$
 $$
 \hat{\bar y}_r = \hat B\,\bar x = \hat B = \bar y \ \ (\text{including } \hat p)
-\qquad\qquad
+\qquad
 \hat t_{yr} = \hat B\, t_x = \bar y N
 $$
 
@@ -269,7 +269,7 @@ $$\hat V(\hat{\bar y}_r) = \Big(1-\frac nN\Big)\Big(\frac{\bar x_U}{\bar x}\Big)
 
 From this core formula, we can easily derive the variances for the slope and the total by recognizing their algebraic relationships ($\hat B = \hat{\bar y}_r / \bar x_U$ and $\hat t_{yr} = N\hat{\bar y}_r$):
 
-$$\hat V(\hat B) = \Big(1-\frac nN\Big)\frac{s_e^2}{n\bar x^2} \qquad\qquad \hat V(\hat t_{yr}) = \Big(1-\frac nN\Big)\Big(\frac{t_x}{\bar x}\Big)^2\frac{s_e^2}{n}$$
+$$\hat V(\hat B) = \Big(1-\frac nN\Big)\frac{s_e^2}{n\bar x^2} \qquad \hat V(\hat t_{yr}) = \Big(1-\frac nN\Big)\Big(\frac{t_x}{\bar x}\Big)^2\frac{s_e^2}{n}$$
 
 If sample sizes are sufficiently large (typically $n > 30$), the sampling distributions are approximately normal. Approximate 95% Confidence Intervals are formed using the standard multiplier:
 
@@ -713,7 +713,7 @@ The ordinary least squares slope and intercept:
 $$
 \hat B_1 = \frac{\displaystyle\sum_{i\in\mathcal S}(x_i-\bar x)(y_i-\bar y)}{\displaystyle\sum_{i\in\mathcal S}(x_i-\bar x)^2}
  = \frac{r s_y}{s_x}
-\qquad\qquad
+\qquad
 \hat B_0 = \bar y - \hat B_1 \bar x
 $$
 
@@ -952,7 +952,7 @@ $$
 
 $$
 \hat{\bar y}_{\text{pred}} = \frac1N\sum_{i=1}^N \hat y_i
-\qquad\qquad
+\qquad
 \hat t_{y,\text{pred}} = \sum_{i=1}^N \hat y_i
 $$
 

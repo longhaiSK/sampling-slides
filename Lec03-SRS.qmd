@@ -93,14 +93,14 @@ $$
 $$
 $$
 \hat V(\hat t) = N^2\Big(1-\frac nN\Big)\frac{s^2}{n}
-\qquad\qquad
+\qquad
 \text{SE}(\hat t) = N \cdot \text{SE}(\bar y)
 $$
 
 ## Expression of $\hat t$ with Sampling Weight $w_i$
 
 $$
-\pi_i = n/N \qquad\qquad w_i = 1/\pi_i = N/n
+\pi_i = n/N \qquad w_i = 1/\pi_i = N/n
 $$
 $$
 \sum_{i\in\mathcal S} w_i y_i = \sum_{i\in\mathcal S} \frac{N}{n} y_i = \hat t

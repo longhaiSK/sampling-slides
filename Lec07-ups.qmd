@@ -263,7 +263,7 @@ $$
 
 Since $\hat t_\psi$ is the mean of $n$ IID copies of $u_j^*$:
 $$
-E(\hat t_\psi) = E(u_j^*) = t, \qquad\qquad
+E(\hat t_\psi) = E(u_j^*) = t, \qquad
 V(\hat t_\psi) = \frac{V(u_j^*)}{n} = \frac1n\sum_{i=1}^N \psi_i\Big(\frac{t_i}{\psi_i}-t\Big)^2
 $$
 
@@ -276,7 +276,7 @@ There is **no finite population correction** — the $n$ draws are independent
 
 We estimate the population mean $\bar y_U = t/M_0$ by
 $$
-\hat{\bar y}_\psi = \frac{\hat t_\psi}{\hat M_{0\psi}}, \qquad\qquad
+\hat{\bar y}_\psi = \frac{\hat t_\psi}{\hat M_{0\psi}}, \qquad
 \hat M_{0\psi} = \frac1n\sum_{i\in\mathcal R}\frac{M_i}{\psi_i}
 $$
 
@@ -531,7 +531,7 @@ $$
 For one-stage cluster sampling (every ssu observed each time psu $i$ is hit),
 $w_{ij}=w_i=1/(n\psi_i)$ for every ssu $j$ in psu $i$, and
 $$
-\hat t_\psi = \sum_{i\in\mathcal R}\sum_{j=1}^{M_i} w_{ij}y_{ij}, \qquad\qquad
+\hat t_\psi = \sum_{i\in\mathcal R}\sum_{j=1}^{M_i} w_{ij}y_{ij}, \qquad
 \hat{\bar y}_\psi = \frac{\sum_{i\in\mathcal R}\sum_{j=1}^{M_i} w_{ij}y_{ij}}{\sum_{i\in\mathcal R}\sum_{j=1}^{M_i} w_{ij}}
 $$
 
