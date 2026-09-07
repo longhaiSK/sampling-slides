@@ -56,77 +56,115 @@ probability $10/16$:
 We could realize this design with 16 numbered cards: card 1 $\to$ A; cards 2--3
 $\to$ B; cards 4--6 $\to$ C; cards 7--16 $\to$ D.
 
-## Estimation for Scheme 1
+## Estimation for Scheme 1 {.smaller}
 
 Since only one store is sampled, define the **Hansen-Hurwitz** estimator
-$\hat t_\psi = t_i/\psi_i$ for the selected store $i$:
+$\hat t_\psi = t_i/\psi_i$ for the selected store $i$. The **Sum** row gives
+$E[\hat t_\psi]$ and $V[\hat t_\psi]$ directly:
 
-| Sample | $\psi_i$ | $t_i$ | $\hat t_\psi = t_i/\psi_i$ | $(\hat t_\psi - t)^2$ |
-|:---:|---:|---:|---:|---:|
-| $\{A\}$ | $1/16$ | 11 | 176 | 15,376 |
-| $\{B\}$ | $2/16$ | 20 | 160 | 19,600 |
-| $\{C\}$ | $3/16$ | 24 | 128 | 29,584 |
-| $\{D\}$ | $10/16$ | 245 | 392 | 8,464 |
+:::: {.columns}
+
+:::{.column style="width:60%;"}
+
+| Sample | $\psi_i$ | $t_i$ | $\hat t_\psi$ | $\psi_i\hat t_\psi$ | $(\hat t_\psi-t)^2$ | $\psi_i(\hat t_\psi-t)^2$ |
+|:---:|---:|---:|---:|---:|---:|---:|
+| $\{A\}$ | $1/16$ | 11 | 176 | 11 | 15,376 | 961 |
+| $\{B\}$ | $2/16$ | 20 | 160 | 20 | 19,600 | 2,450 |
+| $\{C\}$ | $3/16$ | 24 | 128 | 24 | 29,584 | 5,547 |
+| $\{D\}$ | $10/16$ | 245 | 392 | 245 | 8,464 | 5,290 |
+| **Sum** | **1** | **300** | | **300** | | **14,248** |
+
+:::
+
+:::{.column style="width:40%;"}
 
 $$
-E[\hat t_\psi] = \frac{1}{16}(176)+\frac{2}{16}(160)+\frac{3}{16}(128)+\frac{10}{16}(392) = 300 = t
+\begin{aligned}
+E[\hat t_\psi] &= \sum_{i=1}^N \psi_i\hat t_\psi = 300 = t \\[4pt]
+V[\hat t_\psi] &= \sum_{i=1}^N \psi_i(\hat t_\psi-t)^2 = 14{,}248
+\end{aligned}
 $$
 
-$\hat t_\psi$ is always unbiased, because in general $E[\hat t_\psi]=\sum_{i=1}^N \psi_i\dfrac{t_i}{\psi_i}=t$.
+$\hat t_\psi$ is always unbiased, because in general
+$E[\hat t_\psi]=\sum_{i=1}^N \psi_i\dfrac{t_i}{\psi_i}=t$.
 
-## Variance for Scheme 1
+:::
 
-$$
-V[\hat t_\psi] = \sum_{i=1}^N \psi_i\Big(\frac{t_i}{\psi_i}-t\Big)^2
- = \frac{1}{16}(15{,}376)+\frac{2}{16}(19{,}600)+\frac{3}{16}(29{,}584)+\frac{10}{16}(8{,}464)
-$$
-$$
-= 14{,}248
-$$
+::::
 
-## Scheme 2: SRS with Simple (Unbiased) Estimation
+## Scheme 2: SRS with Simple (Unbiased) Estimation {.smaller}
 
 Now suppose instead we take an SRS of size 1, so $\psi_i=1/4$ for every store
-(and $1/\psi_i=4=N$):
+(and $1/\psi_i=4=N$). The **Sum** row gives $V[\hat t_{\text{SRS}}]$ directly:
 
-| Sample | $\psi_i$ | $t_i$ | $\hat t_\psi$ | $(\hat t_\psi-t)^2$ |
-|:---:|---:|---:|---:|---:|
-| $\{A\}$ | $1/4$ | 11 | 44 | 65,536 |
-| $\{B\}$ | $1/4$ | 20 | 80 | 48,400 |
-| $\{C\}$ | $1/4$ | 24 | 96 | 41,616 |
-| $\{D\}$ | $1/4$ | 245 | 980 | 462,400 |
+:::: {.columns}
 
-$\hat t_{\text{SRS}}$ is still unbiased ($E=300$), but
+:::{.column style="width:60%;"}
+
+| Sample | $\psi_i$ | $t_i$ | $\hat t_\psi$ | $(\hat t_\psi-t)^2$ | $\psi_i(\hat t_\psi-t)^2$ |
+|:---:|---:|---:|---:|---:|---:|
+| $\{A\}$ | $1/4$ | 11 | 44 | 65,536 | 16,384 |
+| $\{B\}$ | $1/4$ | 20 | 80 | 48,400 | 12,100 |
+| $\{C\}$ | $1/4$ | 24 | 96 | 41,616 | 10,404 |
+| $\{D\}$ | $1/4$ | 245 | 980 | 462,400 | 115,600 |
+| **Sum** | **1** | | | | **154,488** |
+
+:::
+
+:::{.column style="width:40%;"}
+
 $$
-V[\hat t_{\text{SRS}}] = \frac14(65{,}536)+\frac14(48{,}400)+\frac14(41{,}616)+\frac14(462{,}400) = 154{,}488
+\begin{aligned}
+E[\hat t_{\text{SRS}}] &= 300 = t \\[4pt]
+V[\hat t_{\text{SRS}}] &= \sum_{i} \psi_i(\hat t_\psi-t)^2 = 154{,}488
+\end{aligned}
 $$
 
-— over ten times larger than the PPS design's variance of 14,248! The PPS
+$\hat t_{\text{SRS}}$ is still unbiased, but this is over ten times larger
+than the PPS design's variance of 14,248!
+
+:::
+
+::::
+
+The PPS
 design uses **auxiliary information**: store size is known and related to
 sales, and the design exploits this. If Store D were selected under SRS, its
 huge sales total gets multiplied by $N=4$ (since it represents only itself),
 producing a wildly unstable estimate.
 
-## Scheme 2: SRS with Ratio Estimation
+## Scheme 2: SRS with Ratio Estimation {style="font-size: 32px"}
 
 Alternatively, keep the SRS of size 1 but use *ratio* estimation with $x_i=M_i$
-(known total $M_0=1600$):
+(known total $M_0=1600$), $\hat t_r = \dfrac{t_i}{M_i}\cdot M_0$. The **Sum**
+row gives $\sum(\hat t_r-t)^2$ directly:
+
+:::: {.columns}
+
+:::{.column style="width:55%;"}
+
+| Store | $M_i$ | $t_i$ | $\hat t_r$ | $\hat t_r-t$ | $(\hat t_r-t)^2$ |
+|:---:|---:|---:|---:|---:|---:|
+| A | 100 | 11 | 176 | $-124$ | 15,376 |
+| B | 200 | 20 | 160 | $-140$ | 19,600 |
+| C | 300 | 24 | 128 | $-172$ | 29,584 |
+| D | 1000 | 245 | 392 | $92$ | 8,464 |
+| **Sum** | **1600** | **300** | **856** | | **73,024** |
+
+:::
+
+:::{.column style="width:45%;"}
+
 $$
-\hat t_r = \frac{t_i}{M_i}\cdot M_0
+\begin{aligned}
+E(\hat t_r) &= \frac{856}{4} = 214 \quad(\ne 300,\ \text{biased!}) \\[4pt]
+\text{MSE}(\hat t_r) &= \frac{\sum(\hat t_r-t)^2}{4} = \frac{73{,}024}{4} = 18{,}256
+\end{aligned}
 $$
 
-| Store | $M_i$ | $t_i$ | $\hat t_r$ |
-|:---:|---:|---:|---:|
-| A | 100 | 11 | 176 |
-| B | 200 | 20 | 160 |
-| C | 300 | 24 | 128 |
-| D | 1000 | 245 | 392 |
+:::
 
-$$
-E(\hat t_r) = \frac{176+160+128+392}{4} = 214 \quad(\ne 300,\ \text{biased!})
-\qquad
-\text{MSE}(\hat t_r) = \frac{(176-300)^2+\cdots+(392-300)^2}{4} = 18{,}256
-$$
+::::
 
 ## Ratio Estimation vs. Unequal Probability Sampling
 
@@ -271,33 +309,51 @@ every student in each sampled class about hours spent studying last week.
 Classes are drawn using cumulative ranges of $M_i$ (Lahiri's method): class 1
 gets numbers 1--44, class 2 gets 45--77, and so on up to class 15.
 
-## Sample and Estimate of the Total
+## Sample and Estimate of the Total {.smaller}
 
 Suppose the sample (with repeats) is $\mathcal R = \{12, 14, 14, 5, 1\}$, with
-class totals $t_i$ (total hours studying, summed over all students):
+class totals $t_i$ (total hours studying, summed over all students). Writing
+$u_i=t_i/\psi_i$, the **Sum** row gives $\sum u_i$ and $\sum(u_i-\hat t_\psi)^2$
+directly:
 
-| Class | $\psi_i$ | $t_i$ | $t_i/\psi_i$ |
-|:---:|---:|---:|---:|
-| 12 | $24/647$ | 75 | 2021.875 |
-| 14 | $100/647$ | 203 | 1313.410 |
-| 14 | $100/647$ | 203 | 1313.410 |
-| 5 | $76/647$ | 191 | 1626.013 |
-| 1 | $44/647$ | 168 | 2470.364 |
+:::: {.columns}
+
+:::{.column style="width:60%;"}
+
+| Class | $\psi_i$ | $t_i$ | $u_i=t_i/\psi_i$ | $u_i-\hat t_\psi$ | $(u_i-\hat t_\psi)^2$ |
+|:---:|---:|---:|---:|---:|---:|
+| 12 | $24/647$ | 75 | 2021.875 | 272.861 | 74,452.9 |
+| 14 | $100/647$ | 203 | 1313.410 | $-435.604$ | 189,751.2 |
+| 14 | $100/647$ | 203 | 1313.410 | $-435.604$ | 189,751.2 |
+| 5 | $76/647$ | 191 | 1626.013 | $-123.001$ | 15,129.3 |
+| 1 | $44/647$ | 168 | 2470.364 | 721.349 | 520,344.8 |
+| **Sum** | | | **8745.07** | | **989,429.3** |
+
+:::
+
+:::{.column style="width:40%;"}
 
 $$
-\hat t_\psi = \frac{2021.875+1313.410+1313.410+1626.013+2470.364}{5} = 1749.014
+\begin{aligned}
+\hat t_\psi &= \frac{\sum u_i}{n} = \frac{8745.07}{5} = 1749.014 \\[4pt]
+s^2 &= \frac{\sum(u_i-\hat t_\psi)^2}{n-1} = \frac{989{,}429.3}{4} = 247{,}357.3 \\[4pt]
+\text{SE}(\hat t_\psi) &= \sqrt{\frac{s^2}{n}} = \sqrt{\frac{247{,}357.3}{5}} = 222.42
+\end{aligned}
 $$
-$$
-\text{SE}(\hat t_\psi) = \frac{1}{\sqrt5}\sqrt{\frac{(2021.875-1749.014)^2+\cdots+(2470.364-1749.014)^2}{4}} = 222.42
-$$
+
+:::
+
+::::
 
 ## Estimate of Hours per Student
 
 Since $\psi_i = M_i/647$ exactly, $M_i/\psi_i = 647$ for every sampled class,
 so $\hat M_{0\psi} = M_0 = 647$ exactly. The average hours studied per student:
 $$
-\hat{\bar y}_\psi = \frac{1749.014}{647} = 2.70 \text{ hours}, \qquad
-\text{SE}(\hat{\bar y}_\psi) = \frac{222.42}{647} = 0.34 \text{ hours}
+\begin{aligned}
+\hat{\bar y}_\psi &= \frac{1749.014}{647} = 2.70 \text{ hours} \\[4pt]
+\text{SE}(\hat{\bar y}_\psi) &= \frac{222.42}{647} = 0.34 \text{ hours}
+\end{aligned}
 $$
 
 # One-Stage Cluster Sampling with PPS
@@ -319,6 +375,10 @@ Under PPS, we don't need to weight the cluster means by $M_i/\sum M_i$ at all
 
 ## Example: College Classes, Revisited with the PPS Shortcut
 
+:::: {.columns}
+
+:::{.column style="width:50%;"}
+
 | Class | $\bar y_i = t_i/M_i$ |
 |:---:|---:|
 | 12 | $75/24 = 3.13$ |
@@ -326,15 +386,25 @@ Under PPS, we don't need to weight the cluster means by $M_i/\sum M_i$ at all
 | 14 | $203/100 = 2.03$ |
 | 5 | $191/76 = 2.51$ |
 | 1 | $168/44 = 3.81$ |
+| **Sum** | **13.51** |
+
+:::
+
+:::{.column style="width:50%;"}
 
 $$
-\hat{\bar y}_{\text{pps}} = \frac{3.13+2.03+2.03+2.51+3.81}{5} = 2.70
-\qquad\qquad
-\text{SE}(\hat{\bar y}_{\text{pps}}) = 0.34
+\begin{aligned}
+\hat{\bar y}_{\text{pps}} &= \frac{\sum \bar y_i}{5} = \frac{13.51}{5} = 2.70 \\[4pt]
+\text{SE}(\hat{\bar y}_{\text{pps}}) &= 0.34
+\end{aligned}
 $$
 
 Identical to the weighted calculation on the previous slide — but computed
 directly as the mean and SE of the five class averages.
+
+:::
+
+::::
 
 # Review: SRS-of-Clusters vs. PPS
 
@@ -405,26 +475,43 @@ $$
 w_{ij} = \frac{1}{n\psi_i}\cdot\frac{M_i}{m_i}
 $$
 
-## Example: Hours Spent Studying, Subsampled
+## Example: Hours Spent Studying, Subsampled {.smaller}
 
 Instead of surveying every student, we now subsample 5 students per class
-(class 14 is selected twice, with a *different* subsample of 5 each time):
+(class 14 is selected twice, with a *different* subsample of 5 each time).
+Writing $u_i=\hat t_i/\psi_i$, the **Sum** row gives $\sum u_i$ and
+$\sum(u_i-\hat t_\psi)^2$ directly:
 
-| Class | $M_i$ | $\psi_i$ | $\bar y_i$ | $\hat t_i=M_i\bar y_i$ | $\hat t_i/\psi_i$ |
-|:---:|---:|---:|---:|---:|---:|
-| 12 | 24 | 0.0371 | 2.4 | 57.6 | 1552.8 |
-| 14 | 100 | 0.1546 | 1.6 | 160.0 | 1035.2 |
-| 14 | 100 | 0.1546 | 2.0 | 200.0 | 1294.0 |
-| 5 | 76 | 0.1175 | 2.8 | 212.8 | 1811.6 |
-| 1 | 44 | 0.0680 | 3.7 | 162.8 | 2393.9 |
+:::: {.columns}
+
+:::{.column style="width:65%;"}
+
+| Class | $M_i$ | $\psi_i$ | $\bar y_i$ | $\hat t_i$ | $u_i$ | $e_i=u_i-\hat t_\psi$ | $e^2_i$ |
+|:--:|---:|---:|---:|---:|---:|-------:|-----:|
+| 12 | 24 | 0.0371 | 2.4 | 57.6 | 1552.8 | $-64.7$ | 4,186.1 |
+| 14 | 100 | 0.1546 | 1.6 | 160.0 | 1035.2 | $-582.3$ | 339,073.3 |
+| 14 | 100 | 0.1546 | 2.0 | 200.0 | 1294.0 | $-323.5$ | 104,652.2 |
+| 5 | 76 | 0.1175 | 2.8 | 212.8 | 1811.6 | $194.1$ | 37,674.8 |
+| 1 | 44 | 0.0680 | 3.7 | 162.8 | 2393.9 | $776.4$ | 602,797.0 |
+| **Sum** | | | | | **8087.5** | 0| **1,088,383** |
+
+:::
+
+:::{.column style="width:35%;"}
 
 $$
-\hat t_\psi = 1617.5, \qquad \text{SE}(\hat t_\psi) = \frac{521.628}{\sqrt5} = 233.28
+\begin{aligned}
+\hat t_\psi &= \frac{8087.5}{5} = 1617.5 \\[4pt]
+s^2 &= \frac{1{,}088{,}383}{4} = 272{,}095.8 \\[4pt]
+\text{SE}(\hat t_\psi) &= \sqrt{\frac{s^2}{5}} = 233.28\\[4pt]
+\hat{\bar y}_\psi &= \frac{1617.5}{647} = 2.5\text{ h} \\[4pt]
+\text{SE}(\hat{\bar y}_\psi) &= \frac{233.28}{647} = 0.36\text{ h}
+\end{aligned}
 $$
-$$
-\hat{\bar y}_\psi = \frac{1617.5}{647} = 2.5 \text{ hours}, \qquad
-\text{SE}(\hat{\bar y}_\psi) = \frac{233.28}{647} = 0.36 \text{ hours}
-$$
+
+:::
+
+::::
 
 Compared with the full-census example ($\hat{\bar y}_\psi=2.70$,
 $\text{SE}=0.34$), subsampling gives a similar point estimate at a somewhat

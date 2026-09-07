@@ -220,24 +220,30 @@
 </table>
 <p>We could realize this design with 16 numbered cards: card 1 <span class="math inline">\to</span> A; cards 2–3 <span class="math inline">\to</span> B; cards 4–6 <span class="math inline">\to</span> C; cards 7–16 <span class="math inline">\to</span> D.</p>
 </section>
-<section id="estimation-for-scheme-1" class="slide level2">
+<section id="estimation-for-scheme-1" class="slide level2 smaller">
 <h2>Estimation for Scheme 1</h2>
-<p>Since only one store is sampled, define the <strong>Hansen-Hurwitz</strong> estimator <span class="math inline">\hat t_\psi = t_i/\psi_i</span> for the selected store <span class="math inline">i</span>:</p>
-<table class="caption-top">
+<p>Since only one store is sampled, define the <strong>Hansen-Hurwitz</strong> estimator <span class="math inline">\hat t_\psi = t_i/\psi_i</span> for the selected store <span class="math inline">i</span>. The <strong>Sum</strong> row gives <span class="math inline">E[\hat t_\psi]</span> and <span class="math inline">V[\hat t_\psi]</span> directly:</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Sample</th>
 <th style="text-align: right;"><span class="math inline">\psi_i</span></th>
 <th style="text-align: right;"><span class="math inline">t_i</span></th>
-<th style="text-align: right;"><span class="math inline">\hat t_\psi = t_i/\psi_i</span></th>
-<th style="text-align: right;"><span class="math inline">(\hat t_\psi - t)^2</span></th>
+<th style="text-align: right;"><span class="math inline">\hat t_\psi</span></th>
+<th style="text-align: right;"><span class="math inline">\psi_i\hat t_\psi</span></th>
+<th style="text-align: right;"><span class="math inline">(\hat t_\psi-t)^2</span></th>
+<th style="text-align: right;"><span class="math inline">\psi_i(\hat t_\psi-t)^2</span></th>
 </tr>
 </thead>
 <tbody>
@@ -246,49 +252,72 @@
 <td style="text-align: right;"><span class="math inline">1/16</span></td>
 <td style="text-align: right;">11</td>
 <td style="text-align: right;">176</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: right;">15,376</td>
+<td style="text-align: right;">961</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span class="math inline">\{B\}</span></td>
 <td style="text-align: right;"><span class="math inline">2/16</span></td>
 <td style="text-align: right;">20</td>
 <td style="text-align: right;">160</td>
+<td style="text-align: right;">20</td>
 <td style="text-align: right;">19,600</td>
+<td style="text-align: right;">2,450</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline">\{C\}</span></td>
 <td style="text-align: right;"><span class="math inline">3/16</span></td>
 <td style="text-align: right;">24</td>
 <td style="text-align: right;">128</td>
+<td style="text-align: right;">24</td>
 <td style="text-align: right;">29,584</td>
+<td style="text-align: right;">5,547</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span class="math inline">\{D\}</span></td>
 <td style="text-align: right;"><span class="math inline">10/16</span></td>
 <td style="text-align: right;">245</td>
 <td style="text-align: right;">392</td>
+<td style="text-align: right;">245</td>
 <td style="text-align: right;">8,464</td>
+<td style="text-align: right;">5,290</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Sum</strong></td>
+<td style="text-align: right;"><strong>1</strong></td>
+<td style="text-align: right;"><strong>300</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>300</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>14,248</strong></td>
 </tr>
 </tbody>
 </table>
+</div><div class="column" style="width:40%;">
 <p><span class="math display">
-E[\hat t_\psi] = \frac{1}{16}(176)+\frac{2}{16}(160)+\frac{3}{16}(128)+\frac{10}{16}(392) = 300 = t
+\begin{aligned}
+E[\hat t_\psi] &amp;= \sum_{i=1}^N \psi_i\hat t_\psi = 300 = t \\[4pt]
+V[\hat t_\psi] &amp;= \sum_{i=1}^N \psi_i(\hat t_\psi-t)^2 = 14{,}248
+\end{aligned}
 </span></p>
 <p><span class="math inline">\hat t_\psi</span> is always unbiased, because in general <span class="math inline">E[\hat t_\psi]=\sum_{i=1}^N \psi_i\dfrac{t_i}{\psi_i}=t</span>.</p>
+</div></div>
 </section>
-<section id="variance-for-scheme-1" class="slide level2">
-<h2>Variance for Scheme 1</h2>
-<p><span class="math display">
-V[\hat t_\psi] = \sum_{i=1}^N \psi_i\Big(\frac{t_i}{\psi_i}-t\Big)^2
-= \frac{1}{16}(15{,}376)+\frac{2}{16}(19{,}600)+\frac{3}{16}(29{,}584)+\frac{10}{16}(8{,}464)
-</span> <span class="math display">
-= 14{,}248
-</span></p>
-</section>
-<section id="scheme-2-srs-with-simple-unbiased-estimation" class="slide level2">
+<section id="scheme-2-srs-with-simple-unbiased-estimation" class="slide level2 smaller">
 <h2>Scheme 2: SRS with Simple (Unbiased) Estimation</h2>
-<p>Now suppose instead we take an SRS of size 1, so <span class="math inline">\psi_i=1/4</span> for every store (and <span class="math inline">1/\psi_i=4=N</span>):</p>
+<p>Now suppose instead we take an SRS of size 1, so <span class="math inline">\psi_i=1/4</span> for every store (and <span class="math inline">1/\psi_i=4=N</span>). The <strong>Sum</strong> row gives <span class="math inline">V[\hat t_{\text{SRS}}]</span> directly:</p>
+<div class="columns">
+<div class="column" style="width:60%;">
 <table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Sample</th>
@@ -296,6 +325,7 @@ V[\hat t_\psi] = \sum_{i=1}^N \psi_i\Big(\frac{t_i}{\psi_i}-t\Big)^2
 <th style="text-align: right;"><span class="math inline">t_i</span></th>
 <th style="text-align: right;"><span class="math inline">\hat t_\psi</span></th>
 <th style="text-align: right;"><span class="math inline">(\hat t_\psi-t)^2</span></th>
+<th style="text-align: right;"><span class="math inline">\psi_i(\hat t_\psi-t)^2</span></th>
 </tr>
 </thead>
 <tbody>
@@ -305,6 +335,7 @@ V[\hat t_\psi] = \sum_{i=1}^N \psi_i\Big(\frac{t_i}{\psi_i}-t\Big)^2
 <td style="text-align: right;">11</td>
 <td style="text-align: right;">44</td>
 <td style="text-align: right;">65,536</td>
+<td style="text-align: right;">16,384</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span class="math inline">\{B\}</span></td>
@@ -312,6 +343,7 @@ V[\hat t_\psi] = \sum_{i=1}^N \psi_i\Big(\frac{t_i}{\psi_i}-t\Big)^2
 <td style="text-align: right;">20</td>
 <td style="text-align: right;">80</td>
 <td style="text-align: right;">48,400</td>
+<td style="text-align: right;">12,100</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline">\{C\}</span></td>
@@ -319,6 +351,7 @@ V[\hat t_\psi] = \sum_{i=1}^N \psi_i\Big(\frac{t_i}{\psi_i}-t\Big)^2
 <td style="text-align: right;">24</td>
 <td style="text-align: right;">96</td>
 <td style="text-align: right;">41,616</td>
+<td style="text-align: right;">10,404</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span class="math inline">\{D\}</span></td>
@@ -326,19 +359,34 @@ V[\hat t_\psi] = \sum_{i=1}^N \psi_i\Big(\frac{t_i}{\psi_i}-t\Big)^2
 <td style="text-align: right;">245</td>
 <td style="text-align: right;">980</td>
 <td style="text-align: right;">462,400</td>
+<td style="text-align: right;">115,600</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Sum</strong></td>
+<td style="text-align: right;"><strong>1</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>154,488</strong></td>
 </tr>
 </tbody>
 </table>
-<p><span class="math inline">\hat t_{\text{SRS}}</span> is still unbiased (<span class="math inline">E=300</span>), but <span class="math display">
-V[\hat t_{\text{SRS}}] = \frac14(65{,}536)+\frac14(48{,}400)+\frac14(41{,}616)+\frac14(462{,}400) = 154{,}488
+</div><div class="column" style="width:40%;">
+<p><span class="math display">
+\begin{aligned}
+E[\hat t_{\text{SRS}}] &amp;= 300 = t \\[4pt]
+V[\hat t_{\text{SRS}}] &amp;= \sum_{i} \psi_i(\hat t_\psi-t)^2 = 154{,}488
+\end{aligned}
 </span></p>
-<p>— over ten times larger than the PPS design’s variance of 14,248! The PPS design uses <strong>auxiliary information</strong>: store size is known and related to sales, and the design exploits this. If Store D were selected under SRS, its huge sales total gets multiplied by <span class="math inline">N=4</span> (since it represents only itself), producing a wildly unstable estimate.</p>
+<p><span class="math inline">\hat t_{\text{SRS}}</span> is still unbiased, but this is over ten times larger than the PPS design’s variance of 14,248!</p>
+</div></div>
+<p>The PPS design uses <strong>auxiliary information</strong>: store size is known and related to sales, and the design exploits this. If Store D were selected under SRS, its huge sales total gets multiplied by <span class="math inline">N=4</span> (since it represents only itself), producing a wildly unstable estimate.</p>
 </section>
-<section id="scheme-2-srs-with-ratio-estimation" class="slide level2">
+<section id="scheme-2-srs-with-ratio-estimation" class="slide level2" style="font-size: 32px">
 <h2>Scheme 2: SRS with Ratio Estimation</h2>
-<p>Alternatively, keep the SRS of size 1 but use <em>ratio</em> estimation with <span class="math inline">x_i=M_i</span> (known total <span class="math inline">M_0=1600</span>): <span class="math display">
-\hat t_r = \frac{t_i}{M_i}\cdot M_0
-</span></p>
+<p>Alternatively, keep the SRS of size 1 but use <em>ratio</em> estimation with <span class="math inline">x_i=M_i</span> (known total <span class="math inline">M_0=1600</span>), <span class="math inline">\hat t_r = \dfrac{t_i}{M_i}\cdot M_0</span>. The <strong>Sum</strong> row gives <span class="math inline">\sum(\hat t_r-t)^2</span> directly:</p>
+<div class="columns">
+<div class="column" style="width:55%;">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -346,6 +394,8 @@ V[\hat t_{\text{SRS}}] = \frac14(65{,}536)+\frac14(48{,}400)+\frac14(41{,}616)+\
 <th style="text-align: right;"><span class="math inline">M_i</span></th>
 <th style="text-align: right;"><span class="math inline">t_i</span></th>
 <th style="text-align: right;"><span class="math inline">\hat t_r</span></th>
+<th style="text-align: right;"><span class="math inline">\hat t_r-t</span></th>
+<th style="text-align: right;"><span class="math inline">(\hat t_r-t)^2</span></th>
 </tr>
 </thead>
 <tbody>
@@ -354,32 +404,51 @@ V[\hat t_{\text{SRS}}] = \frac14(65{,}536)+\frac14(48{,}400)+\frac14(41{,}616)+\
 <td style="text-align: right;">100</td>
 <td style="text-align: right;">11</td>
 <td style="text-align: right;">176</td>
+<td style="text-align: right;"><span class="math inline">-124</span></td>
+<td style="text-align: right;">15,376</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">B</td>
 <td style="text-align: right;">200</td>
 <td style="text-align: right;">20</td>
 <td style="text-align: right;">160</td>
+<td style="text-align: right;"><span class="math inline">-140</span></td>
+<td style="text-align: right;">19,600</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">C</td>
 <td style="text-align: right;">300</td>
 <td style="text-align: right;">24</td>
 <td style="text-align: right;">128</td>
+<td style="text-align: right;"><span class="math inline">-172</span></td>
+<td style="text-align: right;">29,584</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">D</td>
 <td style="text-align: right;">1000</td>
 <td style="text-align: right;">245</td>
 <td style="text-align: right;">392</td>
+<td style="text-align: right;"><span class="math inline">92</span></td>
+<td style="text-align: right;">8,464</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Sum</strong></td>
+<td style="text-align: right;"><strong>1600</strong></td>
+<td style="text-align: right;"><strong>300</strong></td>
+<td style="text-align: right;"><strong>856</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>73,024</strong></td>
 </tr>
 </tbody>
 </table>
+</div><div class="column" style="width:45%;">
 <p><span class="math display">
-E(\hat t_r) = \frac{176+160+128+392}{4} = 214 \quad(\ne 300,\ \text{biased!})
-\qquad
-\text{MSE}(\hat t_r) = \frac{(176-300)^2+\cdots+(392-300)^2}{4} = 18{,}256
+\begin{aligned}
+E(\hat t_r) &amp;= \frac{856}{4} = 214 \quad(\ne 300,\ \text{biased!}) \\[4pt]
+\text{MSE}(\hat t_r) &amp;= \frac{\sum(\hat t_r-t)^2}{4} = \frac{73{,}024}{4} = 18{,}256
+\end{aligned}
 </span></p>
+</div></div>
 </section>
 <section id="ratio-estimation-vs.-unequal-probability-sampling" class="slide level2">
 <h2>Ratio Estimation vs.&nbsp;Unequal Probability Sampling</h2>
@@ -513,16 +582,28 @@ V(\hat t_\psi) = \frac{V(u_j^*)}{n} = \frac1n\sum_{i=1}^N \psi_i\Big(\frac{t_i}{
 </table>
 <p>Classes are drawn using cumulative ranges of <span class="math inline">M_i</span> (Lahiri’s method): class 1 gets numbers 1–44, class 2 gets 45–77, and so on up to class 15.</p>
 </section>
-<section id="sample-and-estimate-of-the-total" class="slide level2">
+<section id="sample-and-estimate-of-the-total" class="slide level2 smaller">
 <h2>Sample and Estimate of the Total</h2>
-<p>Suppose the sample (with repeats) is <span class="math inline">\mathcal R = \{12, 14, 14, 5, 1\}</span>, with class totals <span class="math inline">t_i</span> (total hours studying, summed over all students):</p>
+<p>Suppose the sample (with repeats) is <span class="math inline">\mathcal R = \{12, 14, 14, 5, 1\}</span>, with class totals <span class="math inline">t_i</span> (total hours studying, summed over all students). Writing <span class="math inline">u_i=t_i/\psi_i</span>, the <strong>Sum</strong> row gives <span class="math inline">\sum u_i</span> and <span class="math inline">\sum(u_i-\hat t_\psi)^2</span> directly:</p>
+<div class="columns">
+<div class="column" style="width:60%;">
 <table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Class</th>
 <th style="text-align: right;"><span class="math inline">\psi_i</span></th>
 <th style="text-align: right;"><span class="math inline">t_i</span></th>
-<th style="text-align: right;"><span class="math inline">t_i/\psi_i</span></th>
+<th style="text-align: right;"><span class="math inline">u_i=t_i/\psi_i</span></th>
+<th style="text-align: right;"><span class="math inline">u_i-\hat t_\psi</span></th>
+<th style="text-align: right;"><span class="math inline">(u_i-\hat t_\psi)^2</span></th>
 </tr>
 </thead>
 <tbody>
@@ -531,44 +612,68 @@ V(\hat t_\psi) = \frac{V(u_j^*)}{n} = \frac1n\sum_{i=1}^N \psi_i\Big(\frac{t_i}{
 <td style="text-align: right;"><span class="math inline">24/647</span></td>
 <td style="text-align: right;">75</td>
 <td style="text-align: right;">2021.875</td>
+<td style="text-align: right;">272.861</td>
+<td style="text-align: right;">74,452.9</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">14</td>
 <td style="text-align: right;"><span class="math inline">100/647</span></td>
 <td style="text-align: right;">203</td>
 <td style="text-align: right;">1313.410</td>
+<td style="text-align: right;"><span class="math inline">-435.604</span></td>
+<td style="text-align: right;">189,751.2</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">14</td>
 <td style="text-align: right;"><span class="math inline">100/647</span></td>
 <td style="text-align: right;">203</td>
 <td style="text-align: right;">1313.410</td>
+<td style="text-align: right;"><span class="math inline">-435.604</span></td>
+<td style="text-align: right;">189,751.2</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">5</td>
 <td style="text-align: right;"><span class="math inline">76/647</span></td>
 <td style="text-align: right;">191</td>
 <td style="text-align: right;">1626.013</td>
+<td style="text-align: right;"><span class="math inline">-123.001</span></td>
+<td style="text-align: right;">15,129.3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">1</td>
 <td style="text-align: right;"><span class="math inline">44/647</span></td>
 <td style="text-align: right;">168</td>
 <td style="text-align: right;">2470.364</td>
+<td style="text-align: right;">721.349</td>
+<td style="text-align: right;">520,344.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Sum</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>8745.07</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>989,429.3</strong></td>
 </tr>
 </tbody>
 </table>
+</div><div class="column" style="width:40%;">
 <p><span class="math display">
-\hat t_\psi = \frac{2021.875+1313.410+1313.410+1626.013+2470.364}{5} = 1749.014
-</span> <span class="math display">
-\text{SE}(\hat t_\psi) = \frac{1}{\sqrt5}\sqrt{\frac{(2021.875-1749.014)^2+\cdots+(2470.364-1749.014)^2}{4}} = 222.42
+\begin{aligned}
+\hat t_\psi &amp;= \frac{\sum u_i}{n} = \frac{8745.07}{5} = 1749.014 \\[4pt]
+s^2 &amp;= \frac{\sum(u_i-\hat t_\psi)^2}{n-1} = \frac{989{,}429.3}{4} = 247{,}357.3 \\[4pt]
+\text{SE}(\hat t_\psi) &amp;= \sqrt{\frac{s^2}{n}} = \sqrt{\frac{247{,}357.3}{5}} = 222.42
+\end{aligned}
 </span></p>
+</div></div>
 </section>
 <section id="estimate-of-hours-per-student" class="slide level2">
 <h2>Estimate of Hours per Student</h2>
 <p>Since <span class="math inline">\psi_i = M_i/647</span> exactly, <span class="math inline">M_i/\psi_i = 647</span> for every sampled class, so <span class="math inline">\hat M_{0\psi} = M_0 = 647</span> exactly. The average hours studied per student: <span class="math display">
-\hat{\bar y}_\psi = \frac{1749.014}{647} = 2.70 \text{ hours}, \qquad
-\text{SE}(\hat{\bar y}_\psi) = \frac{222.42}{647} = 0.34 \text{ hours}
+\begin{aligned}
+\hat{\bar y}_\psi &amp;= \frac{1749.014}{647} = 2.70 \text{ hours} \\[4pt]
+\text{SE}(\hat{\bar y}_\psi) &amp;= \frac{222.42}{647} = 0.34 \text{ hours}
+\end{aligned}
 </span></p>
 </section></section>
 <section>
@@ -588,6 +693,8 @@ V(\hat t_\psi) = \frac{V(u_j^*)}{n} = \frac1n\sum_{i=1}^N \psi_i\Big(\frac{t_i}{
 </section>
 <section id="example-college-classes-revisited-with-the-pps-shortcut" class="slide level2">
 <h2>Example: College Classes, Revisited with the PPS Shortcut</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -616,14 +723,21 @@ V(\hat t_\psi) = \frac{V(u_j^*)}{n} = \frac1n\sum_{i=1}^N \psi_i\Big(\frac{t_i}{
 <td style="text-align: center;">1</td>
 <td style="text-align: right;"><span class="math inline">168/44 = 3.81</span></td>
 </tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Sum</strong></td>
+<td style="text-align: right;"><strong>13.51</strong></td>
+</tr>
 </tbody>
 </table>
+</div><div class="column" style="width:50%;">
 <p><span class="math display">
-\hat{\bar y}_{\text{pps}} = \frac{3.13+2.03+2.03+2.51+3.81}{5} = 2.70
-\qquad\qquad
-\text{SE}(\hat{\bar y}_{\text{pps}}) = 0.34
+\begin{aligned}
+\hat{\bar y}_{\text{pps}} &amp;= \frac{\sum \bar y_i}{5} = \frac{13.51}{5} = 2.70 \\[4pt]
+\text{SE}(\hat{\bar y}_{\text{pps}}) &amp;= 0.34
+\end{aligned}
 </span></p>
 <p>Identical to the weighted calculation on the previous slide — but computed directly as the mean and SE of the five class averages.</p>
+</div></div>
 </section></section>
 <section>
 <section id="review-srs-of-clusters-vs.-pps" class="title-slide slide level1 center" data-number="5">
@@ -708,17 +822,21 @@ V(\hat t_\psi) = \frac{V(u_j^*)}{n} = \frac1n\sum_{i=1}^N \psi_i\Big(\frac{t_i}{
 w_{ij} = \frac{1}{n\psi_i}\cdot\frac{M_i}{m_i}
 </span></p>
 </section>
-<section id="example-hours-spent-studying-subsampled" class="slide level2">
+<section id="example-hours-spent-studying-subsampled" class="slide level2 smaller">
 <h2>Example: Hours Spent Studying, Subsampled</h2>
-<p>Instead of surveying every student, we now subsample 5 students per class (class 14 is selected twice, with a <em>different</em> subsample of 5 each time):</p>
+<p>Instead of surveying every student, we now subsample 5 students per class (class 14 is selected twice, with a <em>different</em> subsample of 5 each time). Writing <span class="math inline">u_i=\hat t_i/\psi_i</span>, the <strong>Sum</strong> row gives <span class="math inline">\sum u_i</span> and <span class="math inline">\sum(u_i-\hat t_\psi)^2</span> directly:</p>
+<div class="columns">
+<div class="column" style="width:65%;">
 <table class="caption-top">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 21%">
+<col style="width: 15%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -726,8 +844,10 @@ w_{ij} = \frac{1}{n\psi_i}\cdot\frac{M_i}{m_i}
 <th style="text-align: right;"><span class="math inline">M_i</span></th>
 <th style="text-align: right;"><span class="math inline">\psi_i</span></th>
 <th style="text-align: right;"><span class="math inline">\bar y_i</span></th>
-<th style="text-align: right;"><span class="math inline">\hat t_i=M_i\bar y_i</span></th>
-<th style="text-align: right;"><span class="math inline">\hat t_i/\psi_i</span></th>
+<th style="text-align: right;"><span class="math inline">\hat t_i</span></th>
+<th style="text-align: right;"><span class="math inline">u_i</span></th>
+<th style="text-align: right;"><span class="math inline">e_i=u_i-\hat t_\psi</span></th>
+<th style="text-align: right;"><span class="math inline">e^2_i</span></th>
 </tr>
 </thead>
 <tbody>
@@ -738,6 +858,8 @@ w_{ij} = \frac{1}{n\psi_i}\cdot\frac{M_i}{m_i}
 <td style="text-align: right;">2.4</td>
 <td style="text-align: right;">57.6</td>
 <td style="text-align: right;">1552.8</td>
+<td style="text-align: right;"><span class="math inline">-64.7</span></td>
+<td style="text-align: right;">4,186.1</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">14</td>
@@ -746,6 +868,8 @@ w_{ij} = \frac{1}{n\psi_i}\cdot\frac{M_i}{m_i}
 <td style="text-align: right;">1.6</td>
 <td style="text-align: right;">160.0</td>
 <td style="text-align: right;">1035.2</td>
+<td style="text-align: right;"><span class="math inline">-582.3</span></td>
+<td style="text-align: right;">339,073.3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">14</td>
@@ -754,6 +878,8 @@ w_{ij} = \frac{1}{n\psi_i}\cdot\frac{M_i}{m_i}
 <td style="text-align: right;">2.0</td>
 <td style="text-align: right;">200.0</td>
 <td style="text-align: right;">1294.0</td>
+<td style="text-align: right;"><span class="math inline">-323.5</span></td>
+<td style="text-align: right;">104,652.2</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">5</td>
@@ -762,6 +888,8 @@ w_{ij} = \frac{1}{n\psi_i}\cdot\frac{M_i}{m_i}
 <td style="text-align: right;">2.8</td>
 <td style="text-align: right;">212.8</td>
 <td style="text-align: right;">1811.6</td>
+<td style="text-align: right;"><span class="math inline">194.1</span></td>
+<td style="text-align: right;">37,674.8</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">1</td>
@@ -770,15 +898,32 @@ w_{ij} = \frac{1}{n\psi_i}\cdot\frac{M_i}{m_i}
 <td style="text-align: right;">3.7</td>
 <td style="text-align: right;">162.8</td>
 <td style="text-align: right;">2393.9</td>
+<td style="text-align: right;"><span class="math inline">776.4</span></td>
+<td style="text-align: right;">602,797.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Sum</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>8087.5</strong></td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;"><strong>1,088,383</strong></td>
 </tr>
 </tbody>
 </table>
+</div><div class="column" style="width:35%;">
 <p><span class="math display">
-\hat t_\psi = 1617.5, \qquad \text{SE}(\hat t_\psi) = \frac{521.628}{\sqrt5} = 233.28
-</span> <span class="math display">
-\hat{\bar y}_\psi = \frac{1617.5}{647} = 2.5 \text{ hours}, \qquad
-\text{SE}(\hat{\bar y}_\psi) = \frac{233.28}{647} = 0.36 \text{ hours}
+\begin{aligned}
+\hat t_\psi &amp;= \frac{8087.5}{5} = 1617.5 \\[4pt]
+s^2 &amp;= \frac{1{,}088{,}383}{4} = 272{,}095.8 \\[4pt]
+\text{SE}(\hat t_\psi) &amp;= \sqrt{\frac{s^2}{5}} = 233.28\\[4pt]
+\hat{\bar y}_\psi &amp;= \frac{1617.5}{647} = 2.5\text{ h} \\[4pt]
+\text{SE}(\hat{\bar y}_\psi) &amp;= \frac{233.28}{647} = 0.36\text{ h}
+\end{aligned}
 </span></p>
+</div></div>
 <p>Compared with the full-census example (<span class="math inline">\hat{\bar y}_\psi=2.70</span>, <span class="math inline">\text{SE}=0.34</span>), subsampling gives a similar point estimate at a somewhat higher SE — the price of observing fewer students per class.</p>
 </section></section>
 <section>
