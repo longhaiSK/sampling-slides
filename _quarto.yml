@@ -1,8 +1,16 @@
 project:
-  type: default
+  type: website
+  output-dir: "."
   render:
-    - "*.qmd"
+    - index.qmd
+    - "Lec_*.qmd"
+
+website:
+  title: "Elements of Sampling Survey"
+  description: "Lecture slides"
 
 format:
-  banner_slides-revealjs:
-    embed-resources: false
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: false

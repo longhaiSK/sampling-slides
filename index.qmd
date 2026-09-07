@@ -1,0 +1,20 @@
+---
+title: "Elements of Sampling Survey"
+format: html
+---
+
+Welcome to the course materials for STAT 348: Sampling Survey. Each chapter below opens its slides in a new window.
+
+## Chapters
+
+1. [Introduction to Sampling Surveys](Lec01-sampling_survey.html){target="_blank"} — overview of survey sampling, target populations vs. sampled populations, sampling frames, and sources of error
+2. [General Sampling Concepts](Lec02-general_sampling.html){target="_blank"} — probability sampling designs, inclusion probabilities, sampling weights, and the Horvitz-Thompson estimator
+3. [Simple Random Sampling (SRS)](Lec03-SRS.html){target="_blank"} — SRS with and without replacement, estimation of population means, totals, and proportions, finite population corrections, and variance estimation
+4. [Stratified Sampling](Lec04-strata.html){target="_blank"} — principles of stratification, estimation across strata, proportional allocation, Neyman/optimal allocation, and variance reduction
+5. [Ratio and Regression Estimation](Lec05-ratio-reg.html){target="_blank"} — utilizing auxiliary information, ratio estimators, linear regression estimators, and relative efficiency 
+6. [Cluster Sampling](Lec06-cluster.html){target="_blank"} — single-stage and two-stage cluster designs, intra-cluster correlation, design effects, and cost-variance optimization
+7. [Unequal Probability Sampling](Lec07-ups.html){target="_blank"} — sampling with probability proportional to size (PPS), the Hansen-Hurwitz estimator, and applications in complex survey designs
+
+## About the slides
+
+The slides are written in Quarto and rendered with reveal.js. Every figure is drawn in R at render time, and the R code that produces a result is shown on the slide when the computation itself is the point; for illustrative figures the code is hidden but available in the source. Each example is self-contained: a data set is simulated or sampled with a fixed seed, so all numbers reported on the slides can be reproduced exactly by re-rendering. Where a method has a known failure mode (such as bias in ratio estimators for small samples), the slides show it rather than describe it, with a working example and a diagnostic. Derivations are kept on the slides in full, split across slides where they are long, and every lecture ends with a summary that connects the sampling design to the ones before and after it.
