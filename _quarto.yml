@@ -1,16 +1,9 @@
 project:
-  type: website
+  type: default
   output-dir: "."
   render:
     - index.qmd
     - "Lec_*.qmd"
-
-website:
-  title: "Elements of Sampling Survey"
-  description: "Lecture slides"
-
-format:
-  html:
-    theme: cosmo
-    css: styles.css
-    toc: false
+repo-url: https://github.com/longhaiSK/sampling-slides/
+format: html
+  
