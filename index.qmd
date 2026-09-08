@@ -11,10 +11,18 @@ format:
             margin-bottom: 15px; /* Adjust value as needed */
             font-weight: bold;
           }
+          li a {
+            font-weight: bold; /* Forces the link to be bold */
+          }
+
+          ol {
+            margin-left: 1em;
+          }
         </style>
 ---
 
 
+\
 
 ## Table of Content
 
