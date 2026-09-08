@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Longhai Li">
-<meta name="dcterms.date" content="2026-09-07">
+<meta name="dcterms.date" content="2026-09-08">
 
 <title>Slides for ‘Elements of Sampling Survey’</title>
 <style>
@@ -39,6 +39,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap-138a6193a3bd40baf1e627da441a4734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="index_files/libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<style>
+  li {
+    margin-bottom: 15px; /* Adjust value as needed */
+    font-weight: 600px
+  }
+</style>
 
 
 </head>
@@ -51,7 +59,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Slides for ‘Elements of Sampling Survey’</h1>
+<h1 class="title">Slides for ‘Elements of Sampling Survey’<a href="https://github.com/longhaiSK/sampling-slides/"><i class="fa-brands fa-github" aria-label="github"></i></a></h1>
 </div>
 
 
@@ -68,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 7, 2026</p>
+      <p class="date">September 8, 2026</p>
     </div>
   </div>
   
@@ -83,22 +91,14 @@ ul.task-list li input[type="checkbox"] {
 <section id="table-of-content" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-content">Table of Content</h2>
 <ol type="1">
-<li><a href="Lec01-sampling_survey.html" target="_blank">Introduction to Sampling Surveys</a> — overview of survey sampling, target populations vs.&nbsp;sampled populations, sampling frames, and sources of error</li>
-<li><a href="Lec02-general_sampling.html" target="_blank">General Sampling Concepts</a> — probability sampling designs, inclusion probabilities, sampling weights, and the Horvitz-Thompson estimator</li>
-<li><a href="Lec03-SRS.html" target="_blank">Simple Random Sampling (SRS)</a> — SRS with and without replacement, estimation of population means, totals, and proportions, finite population corrections, and variance estimation</li>
-<li><a href="Lec04-strata.html" target="_blank">Stratified Sampling</a> — principles of stratification, estimation across strata, proportional allocation, Neyman/optimal allocation, and variance reduction</li>
-<li><a href="Lec05-ratio-reg.html" target="_blank">Ratio and Regression Estimation</a> — utilizing auxiliary information, ratio estimators, linear regression estimators, and relative efficiency</li>
-<li><a href="Lec06-cluster.html" target="_blank">Cluster Sampling</a> — single-stage and two-stage cluster designs, intra-cluster correlation, design effects, and cost-variance optimization</li>
-<li><a href="Lec07-ups.html" target="_blank">Unequal Probability Sampling</a> — sampling with probability proportional to size (PPS), the Hansen-Hurwitz estimator, and applications in complex survey designs</li>
+<li><a href="Lec01-sampling_survey.html" target="_blank">Introduction to Sampling Surveys</a></li>
+<li><a href="Lec02-general_sampling.html" target="_blank">General Sampling Concepts</a></li>
+<li><a href="Lec03-SRS.html" target="_blank">Simple Random Sampling (SRS)</a></li>
+<li><a href="Lec04-strata.html" target="_blank">Stratified Sampling</a></li>
+<li><a href="Lec05-ratio-reg.html" target="_blank">Ratio and Regression Estimation</a></li>
+<li><a href="Lec06-cluster.html" target="_blank">Cluster Sampling</a></li>
+<li><a href="Lec07-ups.html" target="_blank">Unequal Probability Sampling</a></li>
 </ol>
-</section>
-<section id="about-the-slides" class="level2">
-<h2 class="anchored" data-anchor-id="about-the-slides">About the slides</h2>
-<p>The slides are written in Quarto and rendered with reveal.js. Every figure is drawn in R at render time, and the R code that produces a result is shown on the slide when the computation itself is the point; for illustrative figures the code is hidden but available in the source. Each example is self-contained: a data set is simulated or sampled with a fixed seed, so all numbers reported on the slides can be reproduced exactly by re-rendering. Where a method has a known failure mode (such as bias in ratio estimators for small samples), the slides show it rather than describe it, with a working example and a diagnostic. Derivations are kept on the slides in full, split across slides where they are long, and every lecture ends with a summary that connects the sampling design to the ones before and after it.</p>
-</section>
-<section id="quarto-source" class="level2">
-<h2 class="anchored" data-anchor-id="quarto-source">Quarto source</h2>
-<p><a href="https://github.com/longhaiSK/sampling-slides/" class="btn btn-primary">Github Repo</a></p>
 </section>
 
 </main>
