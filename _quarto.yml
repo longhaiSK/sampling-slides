@@ -6,4 +6,5 @@ project:
     - "Lec_*.qmd"
 repo-url: https://github.com/longhaiSK/sampling-slides/
 format: html
-  
+date: last-modified
+author: Longhai Li  
