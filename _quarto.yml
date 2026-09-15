@@ -7,4 +7,6 @@ project:
 repo-url: https://github.com/longhaiSK/sampling-slides/
 format: html
 date: last-modified
-author: Longhai Li  
+author: Longhai Li 
+filters:
+  - shinylive
