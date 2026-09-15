@@ -769,7 +769,7 @@ and coverage rate appear at the right of each row.
 
 ```{shinylive-r}
 #| standalone: true
-#| viewerHeight: 860
+#| viewerHeight: 830
 
 ## file: app.R
 library(shiny)
